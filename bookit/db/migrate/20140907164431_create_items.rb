@@ -7,6 +7,7 @@ class CreateItems < ActiveRecord::Migration
       t.datetime :end_time
       t.string :status
       t.references :bucket, index: true
+      t.string :notes
 
       t.timestamps
     end

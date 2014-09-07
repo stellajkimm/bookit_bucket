@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(version: 20140907164530) do
     t.datetime "end_time"
     t.string   "status"
     t.integer  "bucket_id"
+    t.string   "notes"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
