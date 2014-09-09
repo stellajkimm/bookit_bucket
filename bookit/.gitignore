@@ -17,5 +17,6 @@
 
 # Ignore DS Store
 *.DS_Store
-.DS_Store?
+/bookit/.DS_Store
 *.log
+/log/*.log
