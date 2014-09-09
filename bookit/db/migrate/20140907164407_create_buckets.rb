@@ -4,6 +4,7 @@ class CreateBuckets < ActiveRecord::Migration
       t.string :name
       t.string :privacy
       t.references :category, index: true
+      t.references :user, index: true
 
       t.timestamps
     end
