@@ -38,6 +38,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'devise'
 gem 'acts_as_follower'
 gem 'faker'
 
@@ -46,8 +47,6 @@ gem 'faker'
 # end
 
 group :assets do
-  gem 'uglifier', '>= 1.0.3'
-  # gem 'coffee-rails'
 end
 
 group :development, :test do
@@ -57,8 +56,8 @@ end
 group :test do
   gem 'shoulda-matchers'
   gem 'factory_girl_rails'
-  gem 'faker'
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'database_cleaner'
+  gem 'guard-rspec'
 end
