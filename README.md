@@ -28,5 +28,6 @@ User Stories
 *User can get experience points for finishing an item
 *User can get experience points for people taking their item
 *User can get experience points for people doing items that they took from their bucket
-*User can 
+*calendar
+*push notifications
 
