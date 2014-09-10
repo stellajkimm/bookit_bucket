@@ -1,7 +1,7 @@
 bookit_bucket
 =============
 
-User Stories
+## User Stories
 
 #### BUCKETS
 *User can create a bucket
