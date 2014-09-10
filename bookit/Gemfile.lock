@@ -207,7 +207,6 @@ PLATFORMS
 
 DEPENDENCIES
   acts_as_follower
-  bcrypt (~> 3.1.7)
   capybara
   coffee-rails (~> 4.0.0)
   database_cleaner
