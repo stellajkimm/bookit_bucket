@@ -2,7 +2,7 @@ require 'faker'
 
 
 privacy = ["public", "private"]
-status = ""
+status = ["archive", "done", "to do"]
 
 10.times do
 	Category.create(name: Faker::Commerce.department)
@@ -14,6 +14,10 @@ end
 
 	2.times do
 		bucket = user.created_buckets.create(name: Faker::Commerce.product_name, privacy: privacy.sample, category_id: (1..10).to_a.sample)
-		bucket.items.create(name: Faker::Company.bs, status: status.sample)
+		10.times do
+			bucket.items.create(name: Faker::Company.bs, status: status.sample)
+		end
 	end
 end
+
+## have not yet made more bucketownerships and attendances
