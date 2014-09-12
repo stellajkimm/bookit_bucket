@@ -2,10 +2,21 @@ require 'faker'
 
 
 privacy = ["public", "private"]
-status = ["archive", "done", "to do"]
+status = ["archive", "done", "todo"]
 
 10.times do
 	Hashtag.create(tag: Faker::Commerce.department)
+end
+
+## seed for my own purposes
+user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella.com", phone_number: "555.555.5555", password: "password", location: "Stamford, CT")
+
+10.times do
+	bucket = user.created_buckets.create(name: Faker::Commerce.product_name, privacy: privacy.sample)		
+	bucket.bucket_hashtags.create(hashtag_id: (1..10).to_a.sample)
+	10.times do
+		bucket.items.create(name: Faker::Company.bs, status: status.sample)
+	end
 end
 
 10.times do
