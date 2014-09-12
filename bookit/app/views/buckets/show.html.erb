@@ -17,6 +17,8 @@
 			</div>
 		<% end %>
 	</ul>
+	<%= link_to "Add Item" %>
+	
 </div>
 <% @bucket.hashtags.each do |tag| %>
 	<%= link_to "##{tag.tag}", hashtag_path(tag) %>
