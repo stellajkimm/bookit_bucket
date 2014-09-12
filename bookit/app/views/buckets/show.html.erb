@@ -1,7 +1,14 @@
 <div class="container">
-	<%= @bucket.name %> by <%= username(@bucket.user_id) %>
+	<h1><%= @bucket.name %> by <%= username(@bucket.user_id) %></h1>
+	Owners: 
+	<ul>
+	<% @bucket.owners.each do |owner| %>
+		<li><%= username(owner.id) %></li>
+	<% end %>
+	</ul>
+	Privacy: <%= @bucket.privacy %>
 	<% @items.each do |item| %>
-			<div class="container <%= "#{item.status}" if item.status != "todo" %>">
+			<div class="container <%= item.status %>">
 				<%= item.name %>
 			</div>
 		<% end %>

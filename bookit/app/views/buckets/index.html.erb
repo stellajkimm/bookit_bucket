@@ -1,6 +1,6 @@
 <div class="container">
 	<% @buckets.each do |bucket| %>
-		<div class="container <%= "private" if bucket.privacy == "private" %>">
+		<div class="container <%= bucket.privacy %>">
 			<strong><%= link_to bucket.name, bucket_path(bucket) %> by <%= username(bucket.user_id) %></strong>
 		</div>
 	<% end %>
