@@ -18,7 +18,6 @@ FactoryGirl.define do
   factory :bucket do
     name { Faker::Commerce.product_name }
     privacy { "public" }
-    category_id { "1" }
     association :creator, factory: :user
   end
 

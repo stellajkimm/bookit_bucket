@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910003540) do
+ActiveRecord::Schema.define(version: 20140912043850) do
 
   create_table "attendances", force: true do |t|
     t.integer  "item_id"
@@ -23,30 +23,38 @@ ActiveRecord::Schema.define(version: 20140910003540) do
   add_index "attendances", ["item_id"], name: "index_attendances_on_item_id"
   add_index "attendances", ["user_id"], name: "index_attendances_on_user_id"
 
-  create_table "bucketownerships", force: true do |t|
+  create_table "bucket_hashtags", force: true do |t|
+    t.integer  "bucket_id"
+    t.integer  "hashtag_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bucket_hashtags", ["bucket_id"], name: "index_bucket_hashtags_on_bucket_id"
+  add_index "bucket_hashtags", ["hashtag_id"], name: "index_bucket_hashtags_on_hashtag_id"
+
+  create_table "bucket_ownerships", force: true do |t|
     t.integer  "user_id"
     t.integer  "bucket_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "bucketownerships", ["bucket_id"], name: "index_bucketownerships_on_bucket_id"
-  add_index "bucketownerships", ["user_id"], name: "index_bucketownerships_on_user_id"
+  add_index "bucket_ownerships", ["bucket_id"], name: "index_bucket_ownerships_on_bucket_id"
+  add_index "bucket_ownerships", ["user_id"], name: "index_bucket_ownerships_on_user_id"
 
   create_table "buckets", force: true do |t|
     t.string   "name"
     t.string   "privacy"
-    t.integer  "category_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "buckets", ["category_id"], name: "index_buckets_on_category_id"
   add_index "buckets", ["user_id"], name: "index_buckets_on_user_id"
 
-  create_table "categories", force: true do |t|
-    t.string   "name"
+  create_table "hashtags", force: true do |t|
+    t.string   "tag"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -59,6 +67,8 @@ ActiveRecord::Schema.define(version: 20140910003540) do
     t.string   "status"
     t.integer  "bucket_id"
     t.string   "notes"
+    t.string   "rating"
+    t.string   "review"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

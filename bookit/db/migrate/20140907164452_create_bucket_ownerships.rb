@@ -1,6 +1,6 @@
-class CreateBucketownerships < ActiveRecord::Migration
+class CreateBucketOwnerships < ActiveRecord::Migration
   def change
-    create_table :bucketownerships do |t|
+    create_table :bucket_ownerships do |t|
       t.references :user, index: true
       t.references :bucket, index: true
 
