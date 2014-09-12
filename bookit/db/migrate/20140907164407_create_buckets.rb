@@ -3,7 +3,6 @@ class CreateBuckets < ActiveRecord::Migration
     create_table :buckets do |t|
       t.string :name
       t.string :privacy
-      t.references :category, index: true
       t.references :user, index: true
 
       t.timestamps

@@ -6,7 +6,7 @@ bookit_bucket
 #### BUCKETS
 *User can create a bucket
 
-*User can add a category to a bucket
+*User can add a hashtag to a bucket
 
 *User can add items to buckets
 
