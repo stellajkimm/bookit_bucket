@@ -1,4 +1,5 @@
 <div class="container">
+	welcome to bookit bucket
 	<% @buckets.each do |bucket| %>
 		<div class="container <%='current_user_' if user(bucket.user_id) == current_user %><%= bucket.privacy %>">
 			<strong><%= link_to bucket.name, bucket_path(bucket) %> by <%= username(bucket.user_id) %></strong>
