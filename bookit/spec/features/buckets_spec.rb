@@ -5,7 +5,7 @@ describe "Bucket", :js => true do
 
   describe "User can see all buckets" do
     it "by visting the homepage" do
-      visit buckets_path
+      visit root_path
       p "***"
       p buckets
       p "***"
