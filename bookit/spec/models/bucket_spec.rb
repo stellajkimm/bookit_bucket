@@ -5,9 +5,10 @@ RSpec.describe Bucket, :type => :model do
 
   context "associations" do
     it { should belong_to(:creator).class_name("User").with_foreign_key(:user_id) }
-    it { should have_many(:hashtags) }
-    it { should have_many(:bucketownerships) }
-    it { should have_many(:owners).through(:bucketownerships).source(:user) }
+    it { should have_many(:hashtags).through(:bucket_hashtags) }
+    it { should have_many(:bucket_hashtags) }
+    it { should have_many(:bucket_ownerships) }
+    it { should have_many(:owners).through(:bucket_ownerships).source(:user) }
   	it { should have_many(:items) }
   end
 

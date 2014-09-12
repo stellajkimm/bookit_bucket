@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe "Bucket", :js => true do
+describe "Bucket" do #, :js => true do
   let(:user) { create :user_with_buckets }
   let(:buckets) { user.created_buckets }
 

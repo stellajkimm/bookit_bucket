@@ -1,11 +1,23 @@
 <div class="container">
-	<%= @bucket.name %> by <%= username(@bucket.user_id) %>
+	<h1><%= @bucket.name %> by <%= username(@bucket.user_id) %></h1>
+	Owners: 
 	<ul>
-		<% @items.each do |item| %>
-			<li><%= item.name %></li>
+	<% @bucket.owners.each do |owner| %>
+		<li><%= username(owner.id) %></li>
+	<% end %>
+	</ul>
+	Privacy: <%= @bucket.privacy %>
+	<% @items.each do |item| %>
+			<div class="container <%= item.status %>">
+				<%= item.name %>
+				<% item.attendances.each do |attendee| %>
+					<%= image_tag user(attendee.user_id).picture, height: "20px" %>
+					<%= username(attendee.user_id) %>
+				<% end %>
+			</div>
 		<% end %>
 	</ul>
 </div>
-<% @bucket.categories.each do |cat| %>
-	<%= cat.name %>
+<% @bucket.hashtags.each do |tag| %>
+	<%= link_to "##{tag.tag}", hashtag_path(tag) %>
 <% end %>

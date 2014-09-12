@@ -6,7 +6,11 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'buckets#index'
 
+  get 'buckets/home' => 'buckets#home'
+  
   resources :buckets
+  resources :hashtags
+
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

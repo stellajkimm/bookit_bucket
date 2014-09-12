@@ -10,8 +10,8 @@ RSpec.describe User, :type => :model do
   end
 
   context "associations" do
-    it { should have_many(:bucketownerships) }
-		it { should have_many(:owned_buckets).through(:bucketownerships).source(:bucket) }
+    it { should have_many(:bucket_ownerships) }
+		it { should have_many(:owned_buckets).through(:bucket_ownerships).source(:bucket) }
     it { should have_many(:created_buckets).class_name("Bucket").with_foreign_key(:user_id) }
     it { should have_many(:attendances) }
   	it { should have_many(:attending_items).through(:attendances).source(:item) }
