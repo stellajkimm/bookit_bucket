@@ -1,8 +1,9 @@
 <div class="container">
 	<%= @bucket.name %> by <%= username(@bucket.user_id) %>
-	<ul>
-		<% @items.each do |item| %>
-			<li><%= item.name %></li>
+	<% @items.each do |item| %>
+			<div class="container <%= "#{item.status}" if item.status != "todo" %>">
+				<%= item.name %>
+			</div>
 		<% end %>
 	</ul>
 </div>
