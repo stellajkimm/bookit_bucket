@@ -1,7 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe BucketsController, :type => :controller do
-	let!(:bucket) { FactoryGirl.create :bucket }
+	let!(:user) { FactoryGirl.create :user_with_buckets }
+	let!(:buckets) { user.created_buckets }
 	context "#index" do
 		it "is successful" do
 			get :index
