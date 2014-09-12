@@ -1,16 +1,6 @@
 <div class="container">
 	<h1>welcome to bookit bucket</h1>
 	<% @buckets.each do |bucket| %>
-		<%= link_to bucket_path(bucket) do %>
-			<div class="bucket <%='current_user_' if user(bucket.user_id) == current_user %><%= bucket.privacy %>">
-				<strong><%= bucket.name %> by <%= username(bucket.user_id) %></strong>
-				<ul>
-					<% short_list(bucket.id).each do |item| %>
-						<li><%= item.name %></li>
-					<% end %>
-				</ul>
-				<h5><%= "... and more" if bucket.items.length > 5 %></h5>
-			</div>
-		<% end %>
+			<%= render partial: "bucket", locals: { bucket: bucket} %>
 	<% end %>
 </div>
