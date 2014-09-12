@@ -10,6 +10,9 @@
 	<% @items.each do |item| %>
 			<div class="container <%= item.status %>">
 				<%= item.name %>
+				<% item.attendances.each do |attendee| %>
+					<%= image_tag user(attendee.user_id).picture, height: "20px" %>
+				<% end %>
 			</div>
 		<% end %>
 	</ul>

@@ -55,6 +55,3 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 		end
 	end
 end
-
-
-## have not yet made attendances
