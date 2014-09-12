@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   root 'buckets#index'
 
   resources :buckets
+  resources :hashtags
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -6,6 +6,6 @@
 		<% end %>
 	</ul>
 </div>
-<% @bucket.categories.each do |cat| %>
-	<%= cat.name %>
+<% @bucket.hashtags.each do |tag| %>
+	<%= link_to "##{tag.tag}", hashtag_path(tag) %>
 <% end %>
