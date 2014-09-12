@@ -1,5 +1,5 @@
 <%= link_to bucket_path(bucket) do %>
-	<div class="bucket <%='current_user_' if user(bucket.user_id) == current_user %><%= bucket.privacy %>">
+	<div class="bucket <%='current_user_' if user(bucket.user_id) == current_user && bucket.privacy == "private" %><%= bucket.privacy %>">
 		<strong><%= bucket.name %> by <%= username(bucket.user_id) %></strong>
 		<ul>
 			<% short_list(bucket.id).each do |item| %>
@@ -7,5 +7,8 @@
 			<% end %>
 		</ul>
 		<h5><%= "... and more" if bucket.items.length > 5 %></h5>
+		<% bucket.hashtags.each do |tag| %>
+			<%= link_to "#" + tag.tag, hashtag_path(tag) %> 
+		<% end %>
 	</div>
 <% end %>
