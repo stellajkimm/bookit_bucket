@@ -58,6 +58,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'capybara'
   gem 'selenium-webdriver'
+  gem 'chromedriver-helper', '~> 0.0.7'
   gem 'database_cleaner'
   gem 'guard-rspec'
 end
