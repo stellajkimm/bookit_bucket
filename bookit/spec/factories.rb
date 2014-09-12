@@ -1,18 +1,7 @@
-# FactoryGirl.define do
-#   factory :user do
-#     email { Faker::Internet.email }
-#     password { "password" }
-#   end
-
-#   factory :bucket do
-#   	name { Faker::Commerce.product_name }
-#   	privacy { "public" }
-#   	category_id { "1" }
-#   end
-# end
-
-
 FactoryGirl.define do
+  factory :hashtag do
+    tag { Faker::Commerce.department}
+  end
 
   # bucket factory with a `belongs_to` association for the user
   factory :bucket do

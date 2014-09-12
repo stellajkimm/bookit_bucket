@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe BucketsController, :type => :controller do
-	let!(:user) { FactoryGirl.create :user_with_buckets }
+	let!(:user) { create :user_with_buckets }
 	let!(:bucket) { user.created_buckets.first }
 	let!(:buckets) { user.created_buckets }
 	context "#index" do
@@ -24,6 +24,5 @@ describe BucketsController, :type => :controller do
       expect(assigns(:bucket)).to eq bucket
     end
 	end
-
 
 end
