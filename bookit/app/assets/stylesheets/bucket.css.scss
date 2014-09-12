@@ -10,8 +10,13 @@
 
 .private {
 	background-color: gray;
+	display: none;
 }
 
 .group {
 	background-color: yellow;
+}
+
+.current_user_private {
+	background-color: gray;
 }
