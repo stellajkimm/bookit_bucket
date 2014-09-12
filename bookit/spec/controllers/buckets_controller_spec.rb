@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe BucketsController, :type => :controller do
 	let!(:user) { FactoryGirl.create :user_with_buckets }
+	let!(:bucket) { user.created_buckets.first }
 	let!(:buckets) { user.created_buckets }
 	context "#index" do
 		it "is successful" do
@@ -15,14 +16,14 @@ describe BucketsController, :type => :controller do
 	end
 	context "#show" do
 		it "is successful" do
-			get :show
+			get :show, :id => bucket.id
 			expect(response).to be_success
 		end
 		it "assigns @bucket to bucket" do
-      get :show
-      expect(assigns(buckets.first)).to eq bucket.first
+      get :show, :id => bucket.id
+      expect(assigns(:bucket)).to eq bucket
     end
 	end
 
-	
+
 end
