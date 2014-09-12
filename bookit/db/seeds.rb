@@ -24,7 +24,10 @@ end
 		bucket.save
 
 		10.times do
-			bucket.items.create(name: Faker::Company.bs, status: status.sample)
+			item = bucket.items.create(name: Faker::Company.bs, status: status.sample)
+			(0..bucket.bucket_ownerships.length).to_a.sample.times do
+				item.attendances.create(user_id: (1..bucket.bucket_ownerships.length).to_a.sample)
+			end
 		end
 	end
 end
@@ -46,7 +49,10 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 	bucket.save
 
 	10.times do
-		bucket.items.create(name: Faker::Company.bs, status: status.sample)
+		item = bucket.items.create(name: Faker::Company.bs, status: status.sample)
+		(0..bucket.bucket_ownerships.length).to_a.sample.times do
+			item.attendances.create(user_id: (1..bucket.bucket_ownerships.length).to_a.sample)
+		end
 	end
 end
 
