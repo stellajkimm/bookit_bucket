@@ -13,7 +13,7 @@
 
 	<% @items.each do |item| %>
 		<div class="item <%= item.status %>">
-			<%= item.name %> - <%= item.location %>
+			<%= link_to item.name, bucket_item_path(@bucket, item) %> - <%= item.location %>
 			<% item.attendances.each do |attendee| %>
 				<%= image_tag user(attendee.user_id).picture, height: "20px" %>
 				<%= username(attendee.user_id) %>

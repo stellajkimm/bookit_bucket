@@ -6,6 +6,10 @@ class ItemsController < ApplicationController
 		redirect_to bucket_path(params[:bucket_id])
 	end
 
+	def show
+		@item = Item.find(params[:id])
+	end
+
 	private
   
   def item_params
