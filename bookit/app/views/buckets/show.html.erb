@@ -1,11 +1,11 @@
 <div class="container">
 
-	<h1><%= @bucket.name %> by <%= username(@bucket.user_id) %></h1>
+	<h1><%= @bucket.name %> by <%= @bucket.creator.first_name + " " + @bucket.creator.last_name %></h1>
 
 	<h3>Owners: </h3>
 	<ul>
 	<% @bucket.owners.each do |owner| %>
-		<li><%= username(owner.id) %></li>
+		<li><%= owner.first_name + " " + owner.last_name %></li>
 	<% end %>
 	</ul>
 	
