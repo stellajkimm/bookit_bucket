@@ -14,9 +14,9 @@
 	<% @items.each do |item| %>
 		<div class="item <%= item.status %>">
 			<%= link_to item.name, bucket_item_path(@bucket, item) %> - <%= item.location %>
-			<% item.attendances.each do |attendee| %>
-				<%= image_tag user(attendee.user_id).picture, height: "20px" %>
-				<%= username(attendee.user_id) %>
+			<% item.attending_users.each do |attendee| %>
+				<%= image_tag attendee.picture, height: "20px" %>
+				<%= attendee.first_name + " " + attendee.last_name %>
 			<% end %>
 		</div>
 	<% end %>
