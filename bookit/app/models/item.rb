@@ -1,6 +1,6 @@
 class Item < ActiveRecord::Base
   belongs_to :bucket
   has_many :attendances
-  has_many :attending_users, through: :attendances, source: :user
+  has_many :attendees, through: :attendances, source: :user
   
 end
