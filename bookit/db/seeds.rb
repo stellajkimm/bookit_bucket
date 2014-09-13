@@ -13,8 +13,10 @@ end
 
 	2.times do
 		bucket = user.created_buckets.create(name: Faker::Commerce.product_name, privacy: privacy.sample)		
-		bucket.bucket_hashtags.create(hashtag_id: (1..10).to_a.sample)
-		
+		(0..4).to_a.sample.times do 
+			bucket.bucket_hashtags.create(hashtag_id: (1..10).to_a.sample)
+		end
+
 		#need a better algorithm to seed mostly non-group buckets
 		[0,0,0,0,0,0,0,0,0,0,1,2,3,4,5].sample.times do
 			bucket.bucket_ownerships.create(user_id: (1..11).to_a.sample)
@@ -24,9 +26,11 @@ end
 		bucket.save
 
 		10.times do
-			item = bucket.items.create(name: Faker::Company.bs, status: status.sample)
-			(0..bucket.bucket_ownerships.length).to_a.sample.times do
-				item.attendances.create(user_id: bucket.bucket_ownerships.sample.user_id)
+			item = bucket.items.create(name: Faker::Company.bs, location: location, status: status.sample)
+			if bucket.privacy == "group"
+				(0..bucket.bucket_ownerships.length).to_a.sample.times do
+					item.attendances.create(user_id: bucket.bucket_ownerships.sample.user_id)
+				end
 			end
 		end
 	end
@@ -38,8 +42,10 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 
 10.times do
 	bucket = user.created_buckets.create(name: Faker::Commerce.product_name, privacy: privacy.sample)		
-	bucket.bucket_hashtags.create(hashtag_id: (1..10).to_a.sample)
-
+	(0..4).to_a.sample.times do 
+		bucket.bucket_hashtags.create(hashtag_id: (1..10).to_a.sample)
+	end
+	
 	#need a better algorithm to seed mostly non-group buckets
 	[0,0,0,0,0,0,0,0,0,0,1,2,3,4,5].sample.times do
 		bucket.bucket_ownerships.create(user_id: (1..10).to_a.sample)
@@ -49,9 +55,12 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 	bucket.save
 
 	10.times do
-		item = bucket.items.create(name: Faker::Company.bs, status: status.sample)
-		(0..bucket.bucket_ownerships.length).to_a.sample.times do
-			item.attendances.create(user_id: bucket.bucket_ownerships.sample.user_id)
+			location = Faker::Address.city + ", " + Faker::Address.state_abbr
+		item = bucket.items.create(name: Faker::Company.bs, location: location, status: status.sample)
+		if bucket.privacy == "group"
+			(0..bucket.bucket_ownerships.length).to_a.sample.times do
+				item.attendances.create(user_id: bucket.bucket_ownerships.sample.user_id)
+			end
 		end
 	end
 end

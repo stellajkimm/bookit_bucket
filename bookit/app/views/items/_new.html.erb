@@ -1,0 +1,5 @@
+	<%= form_for [@bucket, @item] do |f| %>
+	  <%= f.text_field :name, placeholder: "new item", size: "50" %>
+	  <%= f.text_field :location, placeholder: "location" %>
+	  <%= f.submit "Submit New Item" %>
+	<% end %>

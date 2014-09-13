@@ -1,0 +1,17 @@
+<div class="container">
+	<h1><%= @item.name %> - <%= @item.location %></h1>
+	<h3>Bucket: <%= @item.bucket.name %></h3>
+	<h3>Status: <%= @item.status %></h3>
+	<h5>Start Time: <%= @item.start_time %></h5>
+	<h5>End Time: <%= @item.end_time %></h5>
+	<h5>Notes: <%= @item.notes %></h5>
+	<h5>Rating: <%= @item.rating %></h5>
+	<h5>Review: <%= @item.review %></h5>
+
+	<% if @item.status == "group" %>
+			<% @item.attendees.each do |attendee| %>
+				<%= image_tag attendee.picture, height: "20px" %>
+				<%= attendee.first_name + " " + attendee.last_name %>
+			<% end %>
+	<% end %>
+</div>

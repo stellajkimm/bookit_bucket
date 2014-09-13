@@ -10,8 +10,21 @@
 
 .private {
 	background-color: gray;
+	display: none;
 }
 
 .group {
 	background-color: yellow;
+}
+
+.current_user_private {
+	background-color: gray;
+}
+
+.bucket {
+	border: 1px solid black;
+	margin: 5px;
+	padding: 5px;
+	width: 300px;
+	display: inline-block;
 }

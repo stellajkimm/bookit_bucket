@@ -1,7 +1,6 @@
 <div class="container">
+	<h1>welcome to bookit bucket</h1>
 	<% @buckets.each do |bucket| %>
-		<div class="container <%= bucket.privacy %>">
-			<strong><%= link_to bucket.name, bucket_path(bucket) %> by <%= username(bucket.user_id) %></strong>
-		</div>
+			<%= render partial: "bucket", locals: { bucket: bucket} %>
 	<% end %>
 </div>

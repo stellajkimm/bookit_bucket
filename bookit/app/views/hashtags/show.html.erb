@@ -1,6 +1,6 @@
 <div class="container">
 	<h1><%= @hashtag.tag %></h1>
 	<% @hashtag.buckets.each do |bucket| %>
-		<%= link_to bucket.name, bucket_path(bucket) %> - by <%= username(bucket.user_id) %><br>
+		<%= render partial: "buckets/bucket", locals: { bucket: bucket} %>
 	<% end %>
 </div>
