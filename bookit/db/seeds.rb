@@ -26,7 +26,7 @@ end
 		bucket.save
 
 		10.times do
-			item = bucket.items.create(name: Faker::Company.bs, status: status.sample)
+			item = bucket.items.create(name: Faker::Company.bs, location: location, status: status.sample)
 			if bucket.privacy == "group"
 				(0..bucket.bucket_ownerships.length).to_a.sample.times do
 					item.attendances.create(user_id: bucket.bucket_ownerships.sample.user_id)
@@ -55,7 +55,8 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 	bucket.save
 
 	10.times do
-		item = bucket.items.create(name: Faker::Company.bs, status: status.sample)
+			location = Faker::Address.city + ", " + Faker::Address.state_abbr
+		item = bucket.items.create(name: Faker::Company.bs, location: location, status: status.sample)
 		if bucket.privacy == "group"
 			(0..bucket.bucket_ownerships.length).to_a.sample.times do
 				item.attendances.create(user_id: bucket.bucket_ownerships.sample.user_id)
