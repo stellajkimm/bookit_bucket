@@ -2,14 +2,14 @@
 
 	<h1><%= @bucket.name %> by <%= username(@bucket.user_id) %></h1>
 
-	Owners: 
+	<h3>Owners: </h3>
 	<ul>
 	<% @bucket.owners.each do |owner| %>
 		<li><%= username(owner.id) %></li>
 	<% end %>
 	</ul>
 	
-	Privacy: <%= @bucket.privacy %>
+	<h3>Privacy: <%= @bucket.privacy %></h3>
 
 	<% @items.each do |item| %>
 		<div class="item <%= item.status %>">
@@ -20,9 +20,8 @@
 			<% end %>
 		</div>
 	<% end %>
-
-	<button>Add Item</button>
-
+	<br>
+	<% #<button>Add Item</button> %>
 	<%= render partial: "items/new" %>
 
 </div>
