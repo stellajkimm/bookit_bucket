@@ -8,7 +8,10 @@ Rails.application.routes.draw do
 
   get 'buckets/home' => 'buckets#home'
   
-  resources :buckets
+  resources :buckets do
+    resources :items
+  end
+  
   resources :hashtags
 
 

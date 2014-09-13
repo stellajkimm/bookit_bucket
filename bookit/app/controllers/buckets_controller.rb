@@ -10,6 +10,7 @@ class BucketsController < ApplicationController
 	def show
 		@bucket = Bucket.find(params[:id])
 		@items = @bucket.items
+		@item = Item.new
 	end
 end
 
