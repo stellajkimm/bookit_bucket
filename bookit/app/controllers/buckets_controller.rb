@@ -23,6 +23,12 @@ class BucketsController < ApplicationController
 		redirect_to bucket_path(bucket)
 	end
 
+	def destroy
+		bucket = Bucket.find(params[:id])
+		bucket.destroy
+		redirect_to buckets_home_path
+	end
+
 	private
   
   def bucket_params
