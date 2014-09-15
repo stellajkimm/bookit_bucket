@@ -32,7 +32,7 @@ class BucketsController < ApplicationController
 	private
   
   def bucket_params
-    params.require(:bucket).permit(:name, :privacy, :user_id)
+    params.require(:bucket).permit(:name, :privacy, :user_id, :archive)
   end
 
 end
