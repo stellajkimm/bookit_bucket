@@ -12,5 +12,9 @@ class BucketsController < ApplicationController
 		@items = @bucket.items
 		@item = Item.new
 	end
+
+	def new
+		@bucket = Bucket.new
+	end
 end
 
