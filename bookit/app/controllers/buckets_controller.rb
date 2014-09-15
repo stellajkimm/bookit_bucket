@@ -16,5 +16,18 @@ class BucketsController < ApplicationController
 	def new
 		@bucket = Bucket.new
 	end
+
+	def create
+		user = current_user
+		bucket = user.created_buckets.create(bucket_params)
+		redirect_to bucket_path(bucket)
+	end
+
+	private
+  
+  def bucket_params
+    params.require(:bucket).permit(:name, :privacy, :user_id)
+  end
+
 end
 
