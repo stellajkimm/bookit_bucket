@@ -1,10 +1,10 @@
 class BucketsController < ApplicationController
 	def index
-		@buckets = Bucket.all
+		@buckets = Bucket.where(archive: false)
 	end
 
 	def home
-		@buckets = current_user.owned_buckets
+		@buckets = current_user.owned_buckets.where(archive: false)
 	end
 
 	def show
