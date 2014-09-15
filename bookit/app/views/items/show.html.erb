@@ -8,10 +8,12 @@
 	<h5>Rating: <%= @item.rating %></h5>
 	<h5>Review: <%= @item.review %></h5>
 
-	<% if @item.status == "group" %>
-			<% @item.attendees.each do |attendee| %>
-				<%= image_tag attendee.picture, height: "20px" %>
-				<%= attendee.first_name + " " + attendee.last_name %>
-			<% end %>
+	<% if @item.bucket.privacy == "group" %>
+		<h5>Attendees:
+		<% @item.attendees.each do |attendee| %>
+			<%= image_tag attendee.picture, height: "20px" %>
+			<%= attendee.first_name + " " + attendee.last_name %>
+		<% end %>
 	<% end %>
+
 </div>
