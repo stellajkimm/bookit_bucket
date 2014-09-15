@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140912043850) do
     t.string   "name"
     t.string   "privacy"
     t.integer  "user_id"
+    t.string   "archive",    default: "f"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

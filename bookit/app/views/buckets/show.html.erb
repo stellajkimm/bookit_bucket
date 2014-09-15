@@ -21,9 +21,11 @@
 		</div>
 	<% end %>
 	<br>
-	<% #<button>Add Item</button> %>
-	<%= render partial: "items/new" %>
-
+	<% if @bucket.owners.include?(current_user) %>
+		<% #<button>Add Item</button> %>
+		<%= render partial: "items/new" %>
+		<button><%= link_to "Delete Bucket", bucket_path(@bucket), method: "delete" %>
+	<% end %>
 </div>
 
 <% @bucket.hashtags.each do |tag| %>

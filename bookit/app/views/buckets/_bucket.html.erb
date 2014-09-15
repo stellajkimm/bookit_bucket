@@ -1,5 +1,5 @@
 <%= link_to bucket_path(bucket) do %>
-	<div class="bucket <%='current_user_' if user(bucket.user_id) == current_user && bucket.privacy == "private" %><%= bucket.privacy %>">
+	<div class="bucket <%= 'current_user_' if bucket.creator == current_user && bucket.privacy == "private" %><%= bucket.privacy %>">
 		<strong><%= bucket.name %> by <%= bucket.creator.first_name + " " + bucket.creator.last_name %></strong>
 		<ul>
 			<% short_list(bucket.id).each do |item| %>
