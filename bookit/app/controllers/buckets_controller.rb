@@ -39,6 +39,10 @@ class BucketsController < ApplicationController
 		redirect_to bucket_path(bucket)
 	end
 
+	def owners
+		@bucket = Bucket.find(params[:bucket_id])
+	end
+
 	private
   
   def bucket_params

@@ -14,7 +14,7 @@ bookit_bucket
 
 *User can make a bucket private/public/group
 
-*User can change the status of an item (status="done", "to do", "archive")
+*User can change the status of an item (status="done", "to do")
 
 *User can chat with others that own the same bucket
 

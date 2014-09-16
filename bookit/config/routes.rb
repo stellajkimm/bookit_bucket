@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   resources :buckets do
     resources :items
+    get 'owners' => 'buckets#owners', as: 'add_owners'
   end
   
   resources :hashtags
