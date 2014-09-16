@@ -24,7 +24,8 @@
 	<% if @bucket.owners.include?(current_user) %>
 		<% #<button>Add Item</button> %>
 		<%= render partial: "items/new" %>
-		<button><%= link_to "Delete Bucket", bucket_path(@bucket), method: "delete" %>
+		<button><%= link_to "Edit Bucket", edit_bucket_path(@bucket) %></button>
+		<button><%= link_to "Delete Bucket", bucket_path(@bucket), method: "delete" %></button>
 	<% end %>
 </div>
 

@@ -26,6 +26,7 @@ end
 		bucket.save
 
 		10.times do
+			location = Faker::Address.city + ", " + Faker::Address.state_abbr
 			item = bucket.items.create(name: Faker::Company.bs, location: location, status: status.sample)
 			if bucket.privacy == "group"
 				(0..bucket.bucket_ownerships.length).to_a.sample.times do
