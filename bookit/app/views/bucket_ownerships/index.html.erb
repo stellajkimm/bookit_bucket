@@ -12,8 +12,8 @@
 	  <%= f.submit "Add Owner" %>
 	<% end %>
 
-	<%= form_for [@bucket, @bucket_ownership], html: {class: "delete_form"} do |f| %>
-	 <%= f.select(:user_id, options_from_collection_for_select(@bucket.owners, :id, :full_name, :prompt => true)) %>
+	<%= form_for [@bucket, @bucket_ownership], method: "delete", html: {class: "delete_form"} do |f| %>
+	 <%= f.select(:user_id, options_from_collection_for_select(@bucket.owners, :id, :full_name), :prompt => true) %>
 	 <%= f.submit "Remove Owner" %>
 	<% end %>
 

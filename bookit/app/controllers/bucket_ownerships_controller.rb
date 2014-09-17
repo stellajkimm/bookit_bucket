@@ -8,10 +8,8 @@ class BucketOwnershipsController < ApplicationController
 	end
 
 	def create
-		p "here"
 		@bucket = Bucket.find(params[:bucket_id])
 		@bucket.bucket_ownerships.create(bucket_ownership_params)
-		p "created...?"
 		redirect_to bucket_bucket_ownerships_path(@bucket)
 	end
 
