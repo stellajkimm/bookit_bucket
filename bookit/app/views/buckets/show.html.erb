@@ -5,7 +5,7 @@
 	<h3>Owners: </h3>
 	<ul>
 	<% @bucket.owners.each do |owner| %>
-		<li><%= owner.first_name + " " + owner.last_name %></li>
+		<li><%= owner.full_name %></li>
 	<% end %>
 	</ul>
 	
@@ -16,7 +16,6 @@
 			<%= link_to item.name, bucket_item_path(@bucket, item) %> - <%= item.location %>
 			<% item.attendees.each do |attendee| %>
 				<%= image_tag attendee.picture, height: "20px" %>
-				<%= attendee.first_name + " " + attendee.last_name %>
 			<% end %>
 		</div>
 	<% end %>
