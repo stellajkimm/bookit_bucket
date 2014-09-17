@@ -1,0 +1,10 @@
+<div class="container">
+
+	<h3>Owners: </h3>
+	<ul>
+	<% @bucket.owners.each do |owner| %>
+		<li><%= owner.first_name + " " + owner.last_name %></li>
+	<% end %>
+	</ul>
+
+</div>
