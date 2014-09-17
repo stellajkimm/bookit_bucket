@@ -1,18 +1,16 @@
 Rails.application.routes.draw do
+  
   devise_for :users
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
   root 'buckets#index'
 
   get 'buckets/home' => 'buckets#home'
+  patch 'buckets/:id/archive' => 'buckets#archive', as: 'bucket_archive'
   
   resources :buckets do
     resources :items
     resources :bucket_ownerships, only: [:index, :create]
     delete 'bucket_ownerships' => 'bucket_ownerships#destroy', as: 'bucket_ownership'
-    # get 'owners' => 'buckets#owners', as: 'add_owners'
   end
   
   resources :hashtags

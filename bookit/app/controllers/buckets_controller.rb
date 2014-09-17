@@ -39,6 +39,11 @@ class BucketsController < ApplicationController
 		redirect_to bucket_path(bucket)
 	end
 
+	def archive
+		bucket = Bucket.find(params[:id])
+		bucket.update(archive: true)
+		redirect_to buckets_home_path
+	end
 
 
 	private
