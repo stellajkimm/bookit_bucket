@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   
   resources :buckets do
     resources :items
+    resources :bucket_ownerships, only: [:index, :create]
+    delete 'bucket_ownerships' => 'bucket_ownerships#destroy', as: 'bucket_ownership'
+    # get 'owners' => 'buckets#owners', as: 'add_owners'
   end
   
   resources :hashtags

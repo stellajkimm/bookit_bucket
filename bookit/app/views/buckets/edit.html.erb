@@ -1,0 +1,7 @@
+<div class="container">
+	<%= form_for @bucket do |f| %>
+	  <%= f.text_field :name, size: 50 %>
+	  <%= f.select(:privacy, options_for_select(['private', 'public', 'group'], :selected => @bucket.privacy)) %><br><br>
+	  <%= f.submit "Update Bucket Settings" %>
+	<% end %>
+</div>

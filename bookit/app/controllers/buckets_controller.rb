@@ -29,6 +29,18 @@ class BucketsController < ApplicationController
 		redirect_to buckets_home_path
 	end
 
+	def edit
+		@bucket = Bucket.find(params[:id])
+	end
+
+	def update
+		bucket = Bucket.find(params[:id])
+		bucket.update(bucket_params)
+		redirect_to bucket_path(bucket)
+	end
+
+
+
 	private
   
   def bucket_params
