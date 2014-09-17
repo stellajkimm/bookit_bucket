@@ -17,4 +17,8 @@ class User < ActiveRecord::Base
   validates_presence_of :email
   validates :email, uniqueness: true
   validates :email, format: {with: /[-0-9a-zA-Z.+_]+@[-0-9a-zA-Z.+_]+\.[a-zA-Z]{2,}/}
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end

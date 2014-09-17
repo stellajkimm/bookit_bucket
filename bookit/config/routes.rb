@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   
   resources :buckets do
     resources :items
-    resources :bucket_ownerships, shallow: true
+    resources :bucket_ownerships, only: [:index, :create, :destroy]
     # get 'owners' => 'buckets#owners', as: 'add_owners'
   end
   
