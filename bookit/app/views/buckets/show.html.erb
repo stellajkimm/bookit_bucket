@@ -1,11 +1,11 @@
 <div class="container">
 
-	<h1><%= @bucket.name %> by <%= @bucket.creator.first_name + " " + @bucket.creator.last_name %></h1>
+	<h1><%= @bucket.name %> by <%= @bucket.creator.full_name %></h1>
 
 	<h3>Owners: </h3>
 	<ul>
 	<% @bucket.owners.each do |owner| %>
-		<li><%= owner.first_name + " " + owner.last_name %></li>
+		<li><%= owner.full_name %></li>
 	<% end %>
 	</ul>
 	
@@ -16,7 +16,6 @@
 			<%= link_to item.name, bucket_item_path(@bucket, item) %> - <%= item.location %>
 			<% item.attendees.each do |attendee| %>
 				<%= image_tag attendee.picture, height: "20px" %>
-				<%= attendee.first_name + " " + attendee.last_name %>
 			<% end %>
 		</div>
 	<% end %>
@@ -25,6 +24,7 @@
 		<%= render partial: "items/new" %><br><br>
 		<button><%= link_to "Edit Bucket", edit_bucket_path(@bucket) %></button>
 		<button><%= link_to "Delete Bucket", bucket_path(@bucket), method: "delete" %></button>
+		<button><%= link_to "Archive", bucket_archive_path(@bucket), method: "patch" %></button>
 		<% if @bucket.privacy == "group" %>
 			<button><%= link_to "Add/Remove Owners", bucket_bucket_ownerships_path(@bucket) %></button>
 		<% end %>

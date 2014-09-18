@@ -20,6 +20,8 @@ class BucketOwnershipsController < ApplicationController
 		redirect_to bucket_bucket_ownerships_path(@bucket)
 	end
 
+	private
+	
 	def bucket_ownership_params
     params.require(:bucket_ownership).permit(:user_id)
   end

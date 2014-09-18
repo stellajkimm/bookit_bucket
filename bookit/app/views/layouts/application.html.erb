@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Bookit</title>
  	<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js" %>
@@ -7,6 +8,7 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
 <body>
 	<%= link_to "Bookit Bucket", root_path %> - 
 	<% if current_user %>
@@ -18,6 +20,6 @@
 	<% end %>
 
 	<%= yield %>
-
 </body>
+
 </html>
