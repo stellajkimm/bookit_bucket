@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   devise_for :users
+  resources :users
 
   root 'buckets#index'
 
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   end
   
   resources :hashtags
+
 
 
   # Example of regular route:
