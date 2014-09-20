@@ -12,9 +12,9 @@ Rails.application.routes.draw do
     resources :items
     resources :bucket_ownerships, only: [:index, :create]
     delete 'bucket_ownerships' => 'bucket_ownerships#destroy', as: 'bucket_ownership'
+    get 'update_hashtags' => 'hashtags#update', as: 'update_hashtags'
   end
-  
-  get 'hashtags/update' => 'hashtags#update', as: 'update_hashtags'
+
   resources :hashtags, only: [:show]
 
 
