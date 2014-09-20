@@ -18,8 +18,14 @@ class BucketsController < ApplicationController
 	end
 
 	def create
-		user = current_user
-		bucket = user.created_buckets.create(bucket_params)
+		bucket = current_user.created_buckets.create(bucket_params)
+
+		hashtags = params[:bucket][:hashtags][:tag]
+		hashtags_array = hashtags.split("#")
+		p hashtags_array
+		hashtags_array.each do |tag|
+			bucket.hashtags.find_or_create(tag: tag.strip) if tag.length > 0
+		end
 		redirect_to bucket_path(bucket)
 	end
 
