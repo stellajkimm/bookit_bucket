@@ -5,8 +5,8 @@ class HashtagsController < ApplicationController
 
 	def update
 		@bucket = Bucket.find(params[:bucket_id])
-		@hashtags = params[:hashtags]
-		hashtags_array = @hashtags.split("#")
+		hashtags = params[:hashtags]
+		hashtags_array = hashtags.split("#")
 		hashtags_array.each do |tag|
 			@bucket.hashtags << Hashtag.find_or_create_by(tag: tag.strip) if tag.length > 0
 		end
