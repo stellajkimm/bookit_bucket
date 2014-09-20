@@ -23,7 +23,7 @@ class BucketsController < ApplicationController
 		hashtags = params[:bucket][:hashtags][:tag]
 		hashtags_array = hashtags.split("#")
 		hashtags_array.each do |tag|
-			bucket.hashtags.find_or_create(tag: tag.strip) if tag.length > 0
+			bucket.hashtags << Hashtag.find_or_create(tag: tag.strip) if tag.length > 0
 		end
 		redirect_to bucket_path(bucket)
 	end
