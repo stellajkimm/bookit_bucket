@@ -23,7 +23,7 @@ class BucketsController < ApplicationController
 		hashtags = params[:bucket][:hashtags][:tag]
 		hashtags_array = hashtags.split("#")
 		hashtags_array.each do |tag|
-			bucket.hashtags << Hashtag.find_or_create(tag: tag.strip) if tag.length > 0
+			bucket.hashtags << Hashtag.find_or_create_by(tag: tag.strip) if tag.length > 0
 		end
 		redirect_to bucket_path(bucket)
 	end
@@ -36,11 +36,20 @@ class BucketsController < ApplicationController
 
 	def edit
 		@bucket = Bucket.find(params[:id])
+		@hashtags = ""
+		@bucket.hashtags.each {|x| @hashtags << "##{x.tag} " }
 	end
 
 	def update
 		bucket = Bucket.find(params[:id])
 		bucket.update(bucket_params)
+
+		hashtags = params[:bucket][:hashtags][:tag]
+		hashtags_array = hashtags.split("#")
+		hashtags_array.each do |tag|
+			bucket.hashtags << Hashtag.find_or_create_by(tag: tag.strip) if tag.length > 0
+		end
+
 		redirect_to bucket_path(bucket)
 	end
 

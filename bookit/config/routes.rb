@@ -14,7 +14,8 @@ Rails.application.routes.draw do
     delete 'bucket_ownerships' => 'bucket_ownerships#destroy', as: 'bucket_ownership'
   end
   
-  resources :hashtags
+  get 'hashtags/update' => 'hashtags#update', as: 'update_hashtags'
+  resources :hashtags, only: [:show]
 
 
 
