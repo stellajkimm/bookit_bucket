@@ -46,6 +46,9 @@ class BucketsController < ApplicationController
 		redirect_to buckets_home_path
 	end
 
+	def show_archive
+		@buckets = current_user.owned_buckets.where(archive: true)
+	end
 
 	private
   

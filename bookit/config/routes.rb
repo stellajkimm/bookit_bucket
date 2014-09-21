@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   root 'buckets#index'
 
   get 'buckets/home' => 'buckets#home'
+  get 'buckets/show_archive' => 'buckets#show_archive', as: 'bucket_show_archive'
   patch 'buckets/:id/archive' => 'buckets#archive', as: 'bucket_archive'
   
   resources :buckets do
