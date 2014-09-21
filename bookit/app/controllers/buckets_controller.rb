@@ -42,7 +42,7 @@ class BucketsController < ApplicationController
 
 	def archive
 		bucket = Bucket.find(params[:id])
-		bucket.update(archive: true)
+		bucket.archive == false ? bucket.update(archive: true) : bucket.update(archive: false)
 		redirect_to buckets_home_path
 	end
 
