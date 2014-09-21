@@ -9,7 +9,7 @@ class BucketsController < ApplicationController
 
 	def show
 		@bucket = Bucket.find(params[:id])
-		@items = @bucket.items
+		@items = @bucket.items.order(status: :desc)
 		@item = Item.new
 	end
 
