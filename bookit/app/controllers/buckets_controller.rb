@@ -19,7 +19,6 @@ class BucketsController < ApplicationController
 
 	def create
 		@bucket = current_user.created_buckets.create(bucket_params)
-
 		redirect_to bucket_update_hashtags_path(@bucket, :hashtags => params[:bucket][:hashtags][:tag])
 	end
 
@@ -36,16 +35,9 @@ class BucketsController < ApplicationController
 	end
 
 	def update
-		bucket = Bucket.find(params[:id])
-		bucket.update(bucket_params)
-
-		hashtags = params[:bucket][:hashtags][:tag]
-		hashtags_array = hashtags.split("#")
-		hashtags_array.each do |tag|
-			bucket.hashtags << Hashtag.find_or_create_by(tag: tag.strip) if tag.length > 0
-		end
-
-		redirect_to bucket_path(bucket)
+		@bucket = Bucket.find(params[:id])
+		@bucket.update(bucket_params)
+		redirect_to bucket_update_hashtags_path(@bucket, :hashtags => params[:bucket][:hashtags][:tag])
 	end
 
 	def archive

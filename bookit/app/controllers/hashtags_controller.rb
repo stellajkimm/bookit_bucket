@@ -8,9 +8,13 @@ class HashtagsController < ApplicationController
 		hashtags = params[:hashtags]
 		hashtags_array = hashtags.split("#")
 		hashtags_array.each do |tag|
-			@bucket.hashtags << Hashtag.find_or_create_by(tag: tag.strip) if tag.length > 0
+			tag.strip!
+			@bucket.hashtags << Hashtag.find_or_create_by(tag: tag) if tag.length > 0 && !@bucket.hashtags.include?(Hashtag.find_or_create_by(tag: tag))
 		end
 
+		@bucket.hashtags.each do |tag|
+			@bucket.bucket_hashtags.find_by(hashtag_id: tag.id).delete if !hashtags_array.include?(tag.tag)
+		end
 		redirect_to bucket_path(@bucket)
 	end
 end
