@@ -18,9 +18,8 @@ class BucketsController < ApplicationController
 	end
 
 	def create
-		user = current_user
-		bucket = user.created_buckets.create(bucket_params)
-		redirect_to bucket_path(bucket)
+		@bucket = current_user.created_buckets.create(bucket_params)
+		redirect_to bucket_update_hashtags_path(@bucket, :hashtags => params[:bucket][:hashtags][:tag])
 	end
 
 	def destroy
@@ -31,12 +30,14 @@ class BucketsController < ApplicationController
 
 	def edit
 		@bucket = Bucket.find(params[:id])
+		@hashtags = ""
+		@bucket.hashtags.each {|x| @hashtags << "##{x.tag} " }
 	end
 
 	def update
-		bucket = Bucket.find(params[:id])
-		bucket.update(bucket_params)
-		redirect_to bucket_path(bucket)
+		@bucket = Bucket.find(params[:id])
+		@bucket.update(bucket_params)
+		redirect_to bucket_update_hashtags_path(@bucket, :hashtags => params[:bucket][:hashtags][:tag])
 	end
 
 	def archive
