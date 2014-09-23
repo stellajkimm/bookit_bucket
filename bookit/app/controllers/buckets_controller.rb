@@ -9,7 +9,7 @@ class BucketsController < ApplicationController
 
 	def show
 		@bucket = Bucket.find(params[:id])
-		@items = @bucket.items
+		@items = @bucket.items.order(status: :desc)
 		@item = Item.new
 	end
 
@@ -42,10 +42,13 @@ class BucketsController < ApplicationController
 
 	def archive
 		bucket = Bucket.find(params[:id])
-		bucket.update(archive: true)
+		bucket.archive == false ? bucket.update(archive: true) : bucket.update(archive: false)
 		redirect_to buckets_home_path
 	end
 
+	def show_archive
+		@buckets = current_user.owned_buckets.where(archive: true)
+	end
 
 	private
   

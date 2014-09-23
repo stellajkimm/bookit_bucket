@@ -24,7 +24,11 @@
 		<%= render partial: "items/new" %><br><br>
 		<button><%= link_to "Edit Bucket", edit_bucket_path(@bucket) %></button>
 		<button><%= link_to "Delete Bucket", bucket_path(@bucket), method: "delete" %></button>
-		<button><%= link_to "Archive", bucket_archive_path(@bucket), method: "patch" %></button>
+		<% if @bucket.archive == false %>
+			<button><%= link_to "Archive", bucket_archive_path(@bucket), method: "patch" %></button>
+		<% else %>
+			<button><%= link_to "Unarchive", bucket_archive_path(@bucket), method: "patch" %></button>
+		<% end %>
 		<% if @bucket.privacy == "group" %>
 			<button><%= link_to "Add/Remove Owners", bucket_bucket_ownerships_path(@bucket) %></button>
 		<% end %>

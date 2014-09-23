@@ -4,7 +4,7 @@ privacy = ["public", "private"] # also group
 status = ["done", "todo"]
 
 10.times do
-	Hashtag.create(tag: Faker::Commerce.department)
+	Hashtag.create(tag: Faker::Commerce.product_name)
 end
 
 10.times do
