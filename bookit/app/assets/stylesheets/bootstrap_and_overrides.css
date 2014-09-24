@@ -8,5 +8,5 @@
 
 .container {
 	margin: 0px auto;
-	background-color: purple;
+	border: 1px black solid;
 }
