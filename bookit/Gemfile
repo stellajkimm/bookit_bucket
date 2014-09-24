@@ -41,7 +41,6 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'acts_as_follower'
 gem 'faker'
-gem "twitter-bootstrap-rails"
 
 gem 'rspec-rails'
 
@@ -50,6 +49,7 @@ gem 'rspec-rails'
 # end
 
 group :assets do
+	gem "twitter-bootstrap-rails"
 end
 
 group :development, :test do
