@@ -41,6 +41,8 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'acts_as_follower'
 gem 'faker'
+gem "twitter-bootstrap-rails"
+
 gem 'rspec-rails'
 
 # group :production do 
