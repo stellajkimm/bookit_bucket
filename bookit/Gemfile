@@ -44,12 +44,14 @@ gem 'faker'
 
 gem 'rspec-rails'
 
+gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
+
 # group :production do 
 # 	gem 'rails_12factor'
 # end
 
 group :assets do
-	gem "twitter-bootstrap-rails"
+
 end
 
 group :development, :test do
