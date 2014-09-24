@@ -33,6 +33,7 @@
 			<button><%= link_to "Add/Remove Owners", bucket_bucket_ownerships_path(@bucket) %></button>
 		<% end %>
 	<% end %>
+	<br><br>
 <% @bucket.hashtags.each do |tag| %>
 	<%= link_to "##{tag.tag}", hashtag_path(tag) %>
 <% end %>
