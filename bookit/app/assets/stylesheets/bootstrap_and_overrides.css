@@ -7,6 +7,6 @@
   */
 
 .container {
-	margin: 0px auto;
 	border: 1px black solid;
+	padding: 0px;
 }

@@ -1,5 +1,4 @@
 <div class="container">
-	<h1>under construction</h1>
 	<% @buckets.each do |bucket| %>
 		<% if bucket.privacy == "public" %>
 			<%= render partial: "bucket", locals: { bucket: bucket} %>
