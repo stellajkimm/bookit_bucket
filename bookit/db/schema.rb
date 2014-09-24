@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140912043850) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "attendances", force: true do |t|
     t.integer  "item_id"
     t.integer  "user_id"
@@ -20,8 +23,8 @@ ActiveRecord::Schema.define(version: 20140912043850) do
     t.datetime "updated_at"
   end
 
-  add_index "attendances", ["item_id"], name: "index_attendances_on_item_id"
-  add_index "attendances", ["user_id"], name: "index_attendances_on_user_id"
+  add_index "attendances", ["item_id"], name: "index_attendances_on_item_id", using: :btree
+  add_index "attendances", ["user_id"], name: "index_attendances_on_user_id", using: :btree
 
   create_table "bucket_hashtags", force: true do |t|
     t.integer  "bucket_id"
@@ -30,8 +33,8 @@ ActiveRecord::Schema.define(version: 20140912043850) do
     t.datetime "updated_at"
   end
 
-  add_index "bucket_hashtags", ["bucket_id"], name: "index_bucket_hashtags_on_bucket_id"
-  add_index "bucket_hashtags", ["hashtag_id"], name: "index_bucket_hashtags_on_hashtag_id"
+  add_index "bucket_hashtags", ["bucket_id"], name: "index_bucket_hashtags_on_bucket_id", using: :btree
+  add_index "bucket_hashtags", ["hashtag_id"], name: "index_bucket_hashtags_on_hashtag_id", using: :btree
 
   create_table "bucket_ownerships", force: true do |t|
     t.integer  "user_id"
@@ -40,8 +43,8 @@ ActiveRecord::Schema.define(version: 20140912043850) do
     t.datetime "updated_at"
   end
 
-  add_index "bucket_ownerships", ["bucket_id"], name: "index_bucket_ownerships_on_bucket_id"
-  add_index "bucket_ownerships", ["user_id"], name: "index_bucket_ownerships_on_user_id"
+  add_index "bucket_ownerships", ["bucket_id"], name: "index_bucket_ownerships_on_bucket_id", using: :btree
+  add_index "bucket_ownerships", ["user_id"], name: "index_bucket_ownerships_on_user_id", using: :btree
 
   create_table "buckets", force: true do |t|
     t.string   "name"
@@ -52,7 +55,7 @@ ActiveRecord::Schema.define(version: 20140912043850) do
     t.datetime "updated_at"
   end
 
-  add_index "buckets", ["user_id"], name: "index_buckets_on_user_id"
+  add_index "buckets", ["user_id"], name: "index_buckets_on_user_id", using: :btree
 
   create_table "hashtags", force: true do |t|
     t.string   "tag"
@@ -74,7 +77,7 @@ ActiveRecord::Schema.define(version: 20140912043850) do
     t.datetime "updated_at"
   end
 
-  add_index "items", ["bucket_id"], name: "index_items_on_bucket_id"
+  add_index "items", ["bucket_id"], name: "index_items_on_bucket_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
@@ -96,7 +99,7 @@ ActiveRecord::Schema.define(version: 20140912043850) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
 end
