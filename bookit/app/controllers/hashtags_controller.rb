@@ -17,4 +17,10 @@ class HashtagsController < ApplicationController
 		end
 		redirect_to bucket_path(@bucket)
 	end
+
+	def search
+    # @hashtag = Hashtag.find(params[:id])
+    # @buckets = Buckets.all
+  end
+
 end

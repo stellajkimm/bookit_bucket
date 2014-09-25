@@ -4,12 +4,19 @@
 		<h1>#<%= @hashtag.tag %></h1>
 	</div>
 
-	<div class="inner-container white">
+<!-- 	<div class="inner-container white">
 	  <form class="form-group" role="search">
       <input type="text" class="form-control" placeholder="(ex. #another hashtag)">
     	<input type="submit" class="btn btn-default" value="Search"></input>
     </form>
-	</div>
+	</div> -->
+
+<div class="inner-container white">
+	<%= form_tag @hashtag, url: {action: "search"},  method: "get", class: "form-group", html_options: { role: "search" } do |f| %>
+    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "(ex. this whole sentence is a hashtag)" %>
+    <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+  <% end %>
+</div>
 
 	<% @hashtag.buckets.each do |bucket| %>
 		<%= render partial: "buckets/bucket", locals: { bucket: bucket } %>
