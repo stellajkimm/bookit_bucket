@@ -1,5 +1,4 @@
 class BucketsController < ApplicationController
-		before_filter :load_new_bucket
 		before_filter :load_bucket, :except => [:index, :home, :create, :show_archive]
 
 	def index
@@ -49,10 +48,6 @@ class BucketsController < ApplicationController
 
   def load_bucket
     @bucket = Bucket.find params[:id]
-  end
-
-  def load_new_bucket
-    @new_bucket = Bucket.new
   end
 end
 

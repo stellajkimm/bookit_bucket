@@ -12,7 +12,7 @@
 	</div>
 
 	<% @hashtag.buckets.each do |bucket| %>
-		<%= render partial: "buckets/bucket", locals: { bucket: bucket} %>
+		<%= render partial: "buckets/bucket", locals: { bucket: bucket } %>
 	<% end %>
 	<% if @hashtag.buckets.size % 3 != 0 %>
 		<% (3-(@hashtag.buckets.size % 3)).times do %>
