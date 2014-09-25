@@ -79,3 +79,8 @@ a:hover {
     color: #555;
     background-color: #D5D5D5;
 }
+
+.panel {
+  background-color: transparent;
+  border: none;
+}
