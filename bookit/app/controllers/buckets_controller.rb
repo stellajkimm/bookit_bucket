@@ -13,6 +13,8 @@ class BucketsController < ApplicationController
 	def show
 		@items = @bucket.items.order(status: :desc)
 		@item = Item.new
+		@hashtags = ""
+		@bucket.hashtags.each {|x| @hashtags << "##{x.tag} " }
 	end
 
 	def create
@@ -23,11 +25,6 @@ class BucketsController < ApplicationController
 	def destroy
 		bucket.destroy
 		redirect_to buckets_home_path
-	end
-
-	def edit
-		@hashtags = ""
-		@bucket.hashtags.each {|x| @hashtags << "##{x.tag} " }
 	end
 
 	def update
