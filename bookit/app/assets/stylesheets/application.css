@@ -21,7 +21,7 @@
 body:before, body:after {
     content: "";
     position: fixed;
-    background: gray;
+    background: #404040;
     left: 0;
     right: 0;
     height: 25px;
@@ -34,8 +34,8 @@ body:after {
     bottom: 0;
 }
 body {
-    border-left: 25px solid gray;
-    border-right: 25px solid gray;  
+    border-left: 25px solid #404040;
+    border-right: 25px solid #404040;  
     font-family: "Trocci";
 		font-size: 16px;
 }

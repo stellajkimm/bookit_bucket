@@ -5,9 +5,18 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+a {
+  color: #a3a3a3;
+}
 
 .btn {
+
+}
+
+.btn-default {
   font-family: "Quicksand";
+  background-color: #ffda39;
+  border-color: #ffda39;
 }
 
 .container {
@@ -17,6 +26,7 @@
 
 .modal {
   margin: 0px auto;
+  font-family: "Quicksand";
 }
 
 .modal-header {
