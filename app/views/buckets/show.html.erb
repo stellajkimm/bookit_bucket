@@ -1,0 +1,40 @@
+<div class="container">
+
+	<h1><%= @bucket.name %> by <%= @bucket.creator.full_name %></h1>
+
+	<h3>Owners: </h3>
+	<ul>
+	<% @bucket.owners.each do |owner| %>
+		<li><%= owner.full_name %></li>
+	<% end %>
+	</ul>
+	
+	<h3>Privacy: <%= @bucket.privacy %></h3>
+
+	<% @items.each do |item| %>
+		<div class="item <%= item.status %>">
+			<%= link_to item.name, bucket_item_path(@bucket, item) %> - <%= item.location %>
+			<% item.attendees.each do |attendee| %>
+				<%= image_tag attendee.picture, height: "20px" %>
+			<% end %>
+		</div>
+	<% end %>
+	<br>
+	<% if @bucket.owners.include?(current_user) %>
+		<%= render partial: "items/new" %><br><br>
+		<button><%= link_to "Edit Bucket", edit_bucket_path(@bucket) %></button>
+		<button><%= link_to "Delete Bucket", bucket_path(@bucket), method: "delete" %></button>
+		<% if @bucket.archive == false %>
+			<button><%= link_to "Archive", bucket_archive_path(@bucket), method: "patch" %></button>
+		<% else %>
+			<button><%= link_to "Unarchive", bucket_archive_path(@bucket), method: "patch" %></button>
+		<% end %>
+		<% if @bucket.privacy == "group" %>
+			<button><%= link_to "Add/Remove Owners", bucket_bucket_ownerships_path(@bucket) %></button>
+		<% end %>
+	<% end %>
+</div>
+
+<% @bucket.hashtags.each do |tag| %>
+	<%= link_to "##{tag.tag}", hashtag_path(tag) %>
+<% end %>

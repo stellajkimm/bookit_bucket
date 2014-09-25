@@ -1,0 +1,31 @@
+// Place all the styles related to the bucket controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*.container {
+	border: 1px solid black;
+	margin: 5px;
+	padding: 5px;
+}*/
+
+.private {
+	background-color: gray;
+	display: none;
+}
+
+.group {
+	background-color: yellow;
+}
+
+.current_user_private {
+	background-color: gray;
+}
+
+.bucket {
+	border: 1px solid black;
+	margin: 1%;
+	width: 20%;
+	padding: 5px;
+	width: 300px;
+	display: inline-block;
+}

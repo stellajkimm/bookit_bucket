@@ -1,0 +1,20 @@
+<div class="container">
+
+	<h3>Owners: </h3>
+	<ul>
+	<% @bucket.owners.each do |owner| %>
+		<li><%= owner.first_name + " " + owner.last_name %></li>
+	<% end %>
+	</ul>
+
+	<%= form_for [@bucket, @bucket_ownership], method: "post" do |f| %>
+	  <%= f.collection_select(:user_id, @users_array, :id, :full_name, :prompt => true) %>
+	  <%= f.submit "Add Owner" %>
+	<% end %>
+
+	<%= form_for [@bucket, @bucket_ownership], method: "delete", html: {class: "delete_form"} do |f| %>
+	 <%= f.select(:user_id, options_from_collection_for_select(@bucket.owners, :id, :full_name), :prompt => true) %>
+	 <%= f.submit "Remove Owner" %>
+	<% end %>
+
+</div>

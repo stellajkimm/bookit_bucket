@@ -1,0 +1,8 @@
+<div class="container">
+	<% @buckets.each do |bucket| %>
+			<%= render partial: "bucket", locals: { bucket: bucket } %>
+	<% end %>
+</div>
+<%= link_to "Create New Bucket", new_bucket_path %>
+<%= link_to "Show Archive", bucket_show_archive_path %>
+<br><br><br><br>
