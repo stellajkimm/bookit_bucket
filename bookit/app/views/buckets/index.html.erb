@@ -1,8 +1,6 @@
 <div class="container">
 	<% @buckets.each do |bucket| %>
-		<% if bucket.privacy == "public" %>
-			<%= render partial: "bucket", locals: { bucket: bucket} %>
-		<% end %>
+		<%= render partial: "bucket", locals: { bucket: bucket} %>
 	<% end %>
 	<% if @buckets.size % 3 != 0 %>
 		<% (3-(@buckets.size % 3)).times do %>

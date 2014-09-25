@@ -1,6 +1,6 @@
 class BucketsController < ApplicationController
 	def index
-		@buckets = Bucket.where(archive: false)
+		@buckets = Bucket.where(archive: false, privacy: "public")
 	end
 
 	def home
