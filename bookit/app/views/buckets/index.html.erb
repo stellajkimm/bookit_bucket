@@ -1,4 +1,5 @@
 <div class="container">
+	<%= render partial: "carousel" %>
 	<% @buckets.each do |bucket| %>
 		<%= render partial: "bucket", locals: { bucket: bucket} %>
 	<% end %>
