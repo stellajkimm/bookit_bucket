@@ -8,7 +8,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-        <%= link_to "Bookit Bucket", root_path, class: "navbar-brand" %>
+        <%= link_to "BOOKIT BUCKET", root_path, class: "navbar-brand" %>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -39,12 +39,12 @@
 
       <ul class="nav navbar-nav navbar-right">
         <% if current_user %>
-          <li><%= link_to "Your Buckets", buckets_home_path %></li>
-          <li><%= link_to "Settings", user_path(current_user) %></li>
-          <li><%= link_to "Sign Out", destroy_user_session_path, method: "delete" %></li>
+          <li><%= link_to "YOUR BUCKETS", buckets_home_path %></li>
+          <li><%= link_to "SETTINGS", user_path(current_user) %></li>
+          <li><%= link_to "SIGN OUT", destroy_user_session_path, method: "delete" %></li>
         <% else %>
-          <li><%= link_to "Sign In", new_user_session_path %></li>
-          <li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to "SIGN IN", new_user_session_path %></li>
+          <li><%= link_to "SIGN UP", new_user_registration_path %></li>
         <% end %>
 <!--         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
