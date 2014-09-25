@@ -2,15 +2,17 @@
 	<div class="inner-container yellow5">
 
 		<h1><%= @bucket.name %> by <%= @bucket.creator.full_name %></h1>
-
-		<h3>Owners: </h3>
-		<ul>
-		<% @bucket.owners.each do |owner| %>
-			<li><%= owner.full_name %></li>
-		<% end %>
-		</ul>
 		
 		<h3>Privacy: <%= @bucket.privacy %></h3>
+
+		<% if @bucket.owners.length > 1 %>
+			<h3>Owners: </h3>
+			<ul>
+			<% @bucket.owners.each do |owner| %>
+				<li><%= owner.full_name %></li>
+			<% end %>
+			</ul>
+		<% end %>
 
 	</div>
 	<div class="inner-container">
