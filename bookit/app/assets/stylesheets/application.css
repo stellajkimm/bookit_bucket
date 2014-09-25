@@ -57,7 +57,8 @@ body {
     border-left: 25px solid #404040;
     border-right: 25px solid #404040;  
     font-family: "Trocci";
-		font-size: 16px;
+	font-size: 16px;
+    background-color: #5B5950;
 }
 
 .inner-container {
