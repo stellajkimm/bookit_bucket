@@ -43,3 +43,7 @@ body {
 .inner-container {
 	width: 80%;
 }
+
+h3 {
+    font-family: "Quicksand";
+}

@@ -6,11 +6,22 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
+.btn {
+  font-family: "Quicksand";
+}
+
 .container {
 	padding: 100px 0px;
 	width: 100%;
 }
 
+.modal {
+  margin: 0px auto;
+}
+
+.modal-header {
+  border: none;
+}
 /* navbar */
 .navbar-default {
     background-color: #ffffff;
