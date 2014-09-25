@@ -14,10 +14,6 @@ a:hover {
   text-decoration: none;
 }
 
-.btn {
-
-}
-
 .btn-default {
   font-family: "Quicksand";
   background-color: #ffda39;
@@ -29,6 +25,9 @@ a:hover {
 	width: 100%;
 }
 
+.dropdown {
+  display: inline-block;
+}
 
 .form-control {
     display: inline-block;
