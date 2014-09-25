@@ -16,31 +16,31 @@
 
 	</div>
 	<div class="inner-container white">
-	<% @items.each do |item| %>
-		<div class="item <%= item.status %>">
-			<%= link_to item.name, bucket_item_path(@bucket, item) %><%= " - " + item.location if !item.location.empty? %>
-			<% item.attendees.each do |attendee| %>
-				<%= image_tag attendee.picture, height: "20px" %>
-			<% end %>
+
+		<div class="panel-group" id="accordion">
+			<% @items.each do |item| %>
+				<%= render partial: 'buckets/item', locals: { item: item } %>
+			<% end %><br>
 		</div>
-	<% end %>
-	<br>
-	<% if @bucket.owners.include?(current_user) %>
-		<%= render partial: "items/new" %><br><br>
-		<button><%= link_to "Edit Bucket", edit_bucket_path(@bucket), data: {toggle: "modal", target: "#edit"} %></button>
-		<button><%= link_to "Delete Bucket", bucket_path(@bucket), method: "delete" %></button>
-		<% if @bucket.archive == false %>
-			<button><%= link_to "Archive", bucket_archive_path(@bucket), method: "patch" %></button>
-		<% else %>
-			<button><%= link_to "Unarchive", bucket_archive_path(@bucket), method: "patch" %></button>
+
+		<% if @bucket.owners.include?(current_user) %>
+			<%= render partial: "items/new" %><br><br>
+			<button><%= link_to "Edit Bucket", edit_bucket_path(@bucket), data: {toggle: "modal", target: "#edit"} %></button>
+			<button><%= link_to "Delete Bucket", bucket_path(@bucket), method: "delete" %></button>
+			<% if @bucket.archive == false %>
+				<button><%= link_to "Archive", bucket_archive_path(@bucket), method: "patch" %></button>
+			<% else %>
+				<button><%= link_to "Unarchive", bucket_archive_path(@bucket), method: "patch" %></button>
+			<% end %>
+			<% if @bucket.privacy == "group" %>
+				<button><%= link_to "Add/Remove Owners", bucket_bucket_ownerships_path(@bucket) %></button>
+			<% end %>
 		<% end %>
-		<% if @bucket.privacy == "group" %>
-			<button><%= link_to "Add/Remove Owners", bucket_bucket_ownerships_path(@bucket) %></button>
+		<br><br>
+
+
+		<% @bucket.hashtags.each do |tag| %>
+			<%= link_to "##{tag.tag}", hashtag_path(tag) %>
 		<% end %>
-	<% end %>
-	<br><br>
-	<% @bucket.hashtags.each do |tag| %>
-		<%= link_to "##{tag.tag}", hashtag_path(tag) %>
-	<% end %>
 	</div>
 </div>
