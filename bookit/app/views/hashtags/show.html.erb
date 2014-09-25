@@ -1,5 +1,16 @@
 <div class="container">
-	<h1><%= @hashtag.tag %></h1>
+
+	<div class="inner-container yellow5">
+		<h1>#<%= @hashtag.tag %></h1>
+	</div>
+
+	<div class="inner-container white">
+	  <form class="form-group" role="search">
+      <input type="text" class="form-control" placeholder="(ex. #another hashtag)">
+    	<input type="submit" class="btn btn-default" value="Search"></input>
+    </form>
+	</div>
+
 	<% @hashtag.buckets.each do |bucket| %>
 		<%= render partial: "buckets/bucket", locals: { bucket: bucket} %>
 	<% end %>

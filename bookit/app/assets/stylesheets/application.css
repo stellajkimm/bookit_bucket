@@ -38,6 +38,10 @@
     background-color: #FFD300;
 }
 
+.white {
+    background-color: white;
+}
+
 body:before, body:after {
     content: "";
     position: fixed;

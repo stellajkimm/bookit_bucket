@@ -29,6 +29,12 @@ a:hover {
 	width: 100%;
 }
 
+
+.form-control {
+    display: inline-block;
+    width: 85%;
+}
+
 .modal {
   margin: 0px auto;
   font-family: "Quicksand";
