@@ -12,4 +12,34 @@
  *
  *= require_tree .
  *= require_self
+ *= require 'twitter-bootstrap-static/bootstrap'
  */
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display|Oswald:400);
+@import url(http://fonts.googleapis.com/css?family=Amatic+SC:700|Alike);
+@import url(http://fonts.googleapis.com/css?family=Quicksand|Francois+One|Trocchi);
+
+body:before, body:after {
+    content: "";
+    position: fixed;
+    background: gray;
+    left: 0;
+    right: 0;
+    height: 25px;
+    z-index: 100;
+}
+body:before {
+    top: 0;
+}
+body:after {
+    bottom: 0;
+}
+body {
+    border-left: 25px solid gray;
+    border-right: 25px solid gray;  
+    font-family: "Trocci";
+		font-size: 16px;
+}
+
+.inner-container {
+	width: 80%;
+}

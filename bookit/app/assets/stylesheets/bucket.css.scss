@@ -2,12 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.container {
-	border: 1px solid black;
-	margin: 5px;
-	padding: 5px;
-}
-
 .private {
 	background-color: gray;
 	display: none;
@@ -23,8 +17,7 @@
 
 .bucket {
 	border: 1px solid black;
-	margin: 5px;
+	height: 250px;
 	padding: 5px;
-	width: 300px;
 	display: inline-block;
 }

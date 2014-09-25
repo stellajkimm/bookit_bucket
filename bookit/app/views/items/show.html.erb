@@ -1,5 +1,5 @@
-<div class="container">
-	<h1><%= @item.name %> - <%= @item.location %></h1>
+<div class="container inner-container">
+	<h1><%= @item.name %><%= " - " + @item.location if !@item.location.nil? %></h1>
 	<h3>Bucket: <%= @item.bucket.name %></h3>
 	<h3>Status: <%= @item.status %></h3>
 	<h5>Start Time: <%= @item.start_time %></h5>
