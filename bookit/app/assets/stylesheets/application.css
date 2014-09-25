@@ -17,3 +17,12 @@
 @import url(http://fonts.googleapis.com/css?family=Playfair+Display|Oswald:400);
 @import url(http://fonts.googleapis.com/css?family=Amatic+SC:700|Alike);
 @import url(http://fonts.googleapis.com/css?family=Quicksand|Francois+One|Trocchi);
+
+body {
+	font-family: "Trocci";
+	font-size: 16px;
+}
+
+.inner-container {
+	width: 80%;
+}
