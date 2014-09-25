@@ -85,3 +85,7 @@ h1, h3 {
 .trocci {
     font-family: "Trocci";
 }
+
+.divider {
+    height: 100px;
+}
