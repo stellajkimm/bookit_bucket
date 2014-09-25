@@ -18,6 +18,26 @@
 @import url(http://fonts.googleapis.com/css?family=Amatic+SC:700|Alike);
 @import url(http://fonts.googleapis.com/css?family=Quicksand|Francois+One|Trocchi);
 
+.yellow1 {
+    background-color: #FFEFA4;
+}
+
+.yellow2 {
+    background-color: #FFE670;
+}
+
+.yellow3 {
+    background-color: #FFDF45;
+}
+
+.yellow4 {
+    background-color: #FFD717;
+}
+
+.yellow5 {
+    background-color: #FFD300;
+}
+
 body:before, body:after {
     content: "";
     position: fixed;
@@ -41,7 +61,8 @@ body {
 }
 
 .inner-container {
-	width: 80%;
+	width: 100%;
+    padding: 5% 20%;
 }
 
 h1, h3 {

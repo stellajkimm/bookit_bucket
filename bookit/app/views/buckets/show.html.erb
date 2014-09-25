@@ -1,16 +1,19 @@
-<div class="container inner-container">
+<div class="container">
+	<div class="inner-container yellow5">
 
-	<h1><%= @bucket.name %> by <%= @bucket.creator.full_name %></h1>
+		<h1><%= @bucket.name %> by <%= @bucket.creator.full_name %></h1>
 
-	<h3>Owners: </h3>
-	<ul>
-	<% @bucket.owners.each do |owner| %>
-		<li><%= owner.full_name %></li>
-	<% end %>
-	</ul>
-	
-	<h3>Privacy: <%= @bucket.privacy %></h3>
+		<h3>Owners: </h3>
+		<ul>
+		<% @bucket.owners.each do |owner| %>
+			<li><%= owner.full_name %></li>
+		<% end %>
+		</ul>
+		
+		<h3>Privacy: <%= @bucket.privacy %></h3>
 
+	</div>
+	<div class="inner-container">
 	<% @items.each do |item| %>
 		<div class="item <%= item.status %>">
 			<%= link_to item.name, bucket_item_path(@bucket, item) %><%= " - " + item.location if !item.location.empty? %>
@@ -34,7 +37,8 @@
 		<% end %>
 	<% end %>
 	<br><br>
-<% @bucket.hashtags.each do |tag| %>
-	<%= link_to "##{tag.tag}", hashtag_path(tag) %>
-<% end %>
+	<% @bucket.hashtags.each do |tag| %>
+		<%= link_to "##{tag.tag}", hashtag_path(tag) %>
+	<% end %>
+	</div>
 </div>
