@@ -6,10 +6,8 @@
   =require twitter-bootstrap-static/fontawesome
   */
 
-
-
 .container {
-	padding: 70px 0px;
+	padding: 100px 0px;
 	width: 100%;
 }
 
@@ -19,6 +17,7 @@
     border-color: #E7E7E7;
     font-family: "Quicksand";
     font-size: 1.2em;
+    margin: 25px;
 }
 /* title */
 .navbar-default .navbar-brand {
