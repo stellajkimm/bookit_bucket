@@ -3,7 +3,9 @@
 	<% @hashtag.buckets.each do |bucket| %>
 		<%= render partial: "buckets/bucket", locals: { bucket: bucket} %>
 	<% end %>
-	<% (3-(@hashtag.buckets.size % 3)).times do %>
-		<div class="bucket col-sm-4 col-xs-6 yellow<%= rand(1..5) %>"></div>
+	<% if @hashtag.buckets.size % 3 != 0 %>
+		<% (3-(@hashtag.buckets.size % 3)).times do %>
+			<div class="bucket col-sm-4 col-xs-6 yellow<%= rand(1..5) %>"></div>
+		<% end %>
 	<% end %>
 </div>
