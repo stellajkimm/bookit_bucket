@@ -15,7 +15,7 @@
 		<% end %>
 
 	</div>
-	<div class="inner-container">
+	<div class="inner-container white">
 	<% @items.each do |item| %>
 		<div class="item <%= item.status %>">
 			<%= link_to item.name, bucket_item_path(@bucket, item) %><%= " - " + item.location if !item.location.empty? %>
