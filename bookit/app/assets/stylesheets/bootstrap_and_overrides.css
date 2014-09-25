@@ -84,3 +84,7 @@ a:hover {
   background-color: transparent;
   border: none;
 }
+
+.panel-default > .panel-heading {
+  background-color: transparent;
+}

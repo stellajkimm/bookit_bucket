@@ -19,7 +19,7 @@
 
 		<div class="panel-group" id="accordion">
 			<% @items.each do |item| %>
-				<%= render partial: 'buckets/item', locals: { item: item } %>
+				<%= render partial: 'buckets/item', locals: { bucket: @bucket, item: item } %>
 			<% end %><br>
 		</div>
 
