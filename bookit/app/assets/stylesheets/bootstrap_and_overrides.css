@@ -6,10 +6,13 @@
   =require twitter-bootstrap-static/fontawesome
   */
 a {
-  color: #a3a3a3;
+  color: #404040;
 }
-
 a:hover {
+  color: #5E5E5E;
+  text-decoration: none;
+}
+a:visited {
   color: #404040;
   text-decoration: none;
 }
