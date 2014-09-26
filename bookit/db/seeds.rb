@@ -7,10 +7,10 @@ status = ["done", "todo"]
 	Hashtag.create(tag: Faker::Commerce.product_name)
 end
 
-10.times do
+20.times do
 	location = Faker::Address.city + ", " + Faker::Address.state_abbr
 	user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone_number: Faker::PhoneNumber.phone_number, password: "password", location: location, picture: "http://th00.deviantart.net/fs70/PRE/f/2013/140/9/8/cute_little_narwhal_by_fallenstar20-d65z1e4.png")
-
+	user.update(username: "#{user.first_name.downcase}_#{user.last_name.downcase}")
 	2.times do
 		bucket = user.created_buckets.create(name: Faker::Commerce.product_name, privacy: privacy.sample)		
 		(0..4).to_a.sample.times do 
@@ -39,7 +39,7 @@ end
 
 
 ## seed for my own purposes
-user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella.com", phone_number: "555.555.5555", password: "password", location: "Stamford, CT", picture: "http://nyan-cat.com/images/nyan-cat.gif")
+user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella.com", username: "stella_kim", phone_number: "555.555.5555", password: "password", location: "Stamford, CT", picture: "http://nyan-cat.com/images/nyan-cat.gif")
 
 10.times do
 	bucket = user.created_buckets.create(name: Faker::Commerce.product_name, privacy: privacy.sample)		
