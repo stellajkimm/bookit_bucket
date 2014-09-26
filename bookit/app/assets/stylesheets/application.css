@@ -65,6 +65,16 @@ body {
     background-color: #5B5950;
 }
 
+.float-left {
+    float: left;
+}
+.float-right {
+    float: right;
+}
+
+.float-clear {
+    clear: both;
+}
 .inner-container {
 	width: 100%;
     padding: 5% 20%;
@@ -84,10 +94,6 @@ h1, h3 {
 
 .trocci {
     font-family: "Trocci";
-}
-
-.divider {
-    height: 100px;
 }
 
 input[type="text"] {

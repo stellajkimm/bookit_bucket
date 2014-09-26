@@ -90,6 +90,7 @@ a:visited {
 .panel {
   background-color: transparent;
   border: none;
+  padding: 10px;
 }
 
 .panel-default > .panel-heading {
