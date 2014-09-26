@@ -2,9 +2,49 @@
 	<div class="inner-container yellow4">
 		<h1><%= @user.full_name + ", " %>&nbsp&nbsp<em><%= @user.location %></em></h1>
 	</div>
-	<div class="inner-container white"></div>
-	<div class="inner-container white"></div>
-	<div class="inner-container white"></div>
-	<div class="inner-container white"></div>
-	<div class="inner-container white"></div>
+	<div class="inner-container white">
+		<table>
+		<%= form_for @user do |f| %>
+			<tr>
+				<td>First name</td>
+				<td><%= f.text_field :first_name, size: 45 %></td>
+			</tr>
+			<tr>
+				<td>Last name</td>
+				<td><%= f.text_field :last_name, size: 45 %></td>
+			</tr>
+			<tr>
+				<td>Username</td>
+				<td><%= f.text_field :username, size: 45 %></td>
+			</tr>
+			<tr>
+				<td>E-mail</td>
+				<td><%= f.text_field :email, size: 45 %></td>
+			</tr>
+			<tr>
+				<td>Phone Number</td>
+				<td><%= f.text_field :phone_number, size: 45 %></td>
+			</tr>
+			<tr>
+				<td>Location</td>
+				<td><%= f.text_field :location, size: 45 %></td>
+			</tr>
+		</table>
+		<br><br>
+			<% if @user == current_user %>
+			  <%= f.submit "Update Settings", class: "btn btn-default" %>
+			<% end %>
+		<% end %>
+	</div>
+
+	<% if !(@user == current_user) %>
+			<% @user.owned_buckets.each do |bucket| %>
+					<%= render partial: "buckets/bucket", locals: { bucket: bucket } %>
+			<% end %>
+			<% if @user.owned_buckets.size % 3 != 0 %>
+				<% (3-(@user.owned_buckets.size % 3)).times do %>
+					<div class="bucket col-sm-4 col-xs-6 yellow<%= rand(1..5) %>"></div>
+				<% end %>
+			<% end %>
+	<% end %>
 </div>
