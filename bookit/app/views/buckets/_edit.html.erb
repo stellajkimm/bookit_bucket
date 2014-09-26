@@ -1,0 +1,11 @@
+<h1>Edit <%= @bucket.name %></h1>
+<br>
+	<%= form_for @bucket do |f| %>
+	  <%= f.text_field :name, size: 55 %>
+	  <%= f.select(:privacy, options_for_select(['private', 'public', 'group'], :selected => @bucket.privacy)) %><br><br>
+	  <%= f.fields_for :hashtags do |h| %>
+    	<%= h.text_field :tag, value: @hashtags, placeholder: "hashtags (ex. #hash #hash two #hash three)", size: 65 %>
+  	<% end %><br><br>
+	  <%= f.submit "Update Bucket Settings" %>
+	<% end %>
+<br><br>

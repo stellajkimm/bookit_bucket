@@ -1,0 +1,22 @@
+.modal-body {
+	margin: 0px auto;
+	padding-bottom: 0px;
+	form div {
+		margin-bottom: 10px;
+		input[type="email"], input[type="password"]  {
+			background-color: #efefef;
+			border-radius: 3px;
+			border: 2px solid #e4e4e4;
+		}
+		input[type="email"]:focus, input[type="password"]:focus {
+			outline: 5px auto #ffda39;
+		} 
+	}
+}
+
+table { 
+	font-size: 1.3em;
+	tr td {
+		padding: 3px 10px;
+	}
+}

@@ -5,12 +5,50 @@
   To use Glyphicons sprites instead of Font Awesome, replace with "require twitter-bootstrap-static/sprites"
   =require twitter-bootstrap-static/fontawesome
   */
+a {
+  color: #404040;
+}
+a:hover {
+  color: #5E5E5E;
+  text-decoration: none;
+}
+a:visited {
+  color: #404040;
+  text-decoration: none;
+}
+
+.btn-default {
+  font-family: "Quicksand";
+  background-color: #ffda39;
+  border-color: #ffda39;
+}
+
+.carousel {
+  height: 550px;
+}
 
 .container {
-	padding: 100px 0px;
+	padding: 76px 0px 25px 0px;
 	width: 100%;
 }
 
+.dropdown {
+  display: inline-block;
+}
+
+.form-control {
+    display: inline-block;
+    width: 85%;
+}
+
+.modal {
+  margin: 0px auto;
+  font-family: "Quicksand";
+}
+
+.modal-header {
+  border: none;
+}
 /* navbar */
 .navbar-default {
     background-color: #ffffff;
@@ -47,4 +85,14 @@
 .navbar-default .navbar-nav > .open > a:focus {
     color: #555;
     background-color: #D5D5D5;
+}
+
+.panel {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+}
+
+.panel-default > .panel-heading {
+  background-color: transparent;
 }
