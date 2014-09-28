@@ -18,6 +18,11 @@
 		<% if bucket.privacy == "group" %></a><% end %>
 	  <div id="collapse<%= item.id %>" class="panel-collapse collapse float-clear">
 	    <div class="panel-body">
+	    	Attendees: <br>
+	    	<% item.attendees.each do |attendee| %>
+					<%= image_tag attendee.picture, height: '20px' %>
+					<%= link_to attendee.full_name, user_path(attendee) %><br>
+				<% end %>
 	    </div>
 	  </div>
 	</div>
