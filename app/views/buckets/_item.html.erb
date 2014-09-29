@@ -33,7 +33,7 @@
 				<% else %>
 					<button class="btn btn-default"><%= link_to "ATTEND" %></button>
 				<% end %>
-					<button class="btn btn-default"><%= link_to "DELETE" %></button>
+					<button class="btn btn-default"><%= link_to "DELETE", bucket_item_path(bucket, item), method: "delete" %></button>
 	    </div>
 	  </div>
   	<% end %>

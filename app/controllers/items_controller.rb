@@ -10,6 +10,12 @@ class ItemsController < ApplicationController
 		@item = Item.find(params[:id])
 	end
 
+	def destroy
+		@item = Item.find(params[:id])
+		@item.destroy
+		redirect_to bucket_path(@item.bucket)
+	end
+
 	private
   
   def item_params
