@@ -23,6 +23,22 @@ a:visited {
   border-color: #ffda39;
 }
 
+.btn-primary {
+  color: #000;
+  background-color: #ffda39;
+  border-color: #ffda39;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary.focus,
+.btn-primary:active,
+.btn-primary.active,
+.open > .dropdown-toggle.btn-primary {
+  color: #000;
+  background-color: #FFD300;
+  border-color: #FFD300;
+}
+
 .carousel {
   height: 550px;
 }
