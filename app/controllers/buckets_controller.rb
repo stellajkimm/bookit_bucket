@@ -44,6 +44,7 @@ class BucketsController < ApplicationController
 	def show_archive
 		@buckets = current_user.owned_buckets.where(archive: true)
 		@type_of_bucket = "archive"
+		render 'home'
 	end
 
 	def show_public
