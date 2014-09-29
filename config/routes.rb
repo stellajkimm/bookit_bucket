@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'buckets/show_group' => 'buckets#show_group', as: 'bucket_show_group'
   get 'buckets/show_following' => 'buckets#show_following', as: 'bucket_show_following'
   patch 'buckets/:id/archive' => 'buckets#archive', as: 'bucket_archive'
+  patch 'buckets/:bucket_id/items/:id/status' => 'items#status', as: 'bucket_item_status'
   
   resources :buckets do
     resources :items
