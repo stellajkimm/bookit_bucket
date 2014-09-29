@@ -16,9 +16,12 @@ Rails.application.routes.draw do
   patch 'buckets/:bucket_id/items/:id/status' => 'items#status', as: 'bucket_item_status'
   
   resources :buckets do
-    resources :items
+    resources :items do
+      resources :attendances, only: [:create]
+      delete 'attendances' => 'attendances#destroy'
+    end
     resources :bucket_ownerships, only: [:index, :create]
-    delete 'bucket_ownerships' => 'bucket_ownerships#destroy', as: 'bucket_ownership'
+    delete 'bucket_ownerships' => 'bucket_ownerships#destroy'
     get 'update_hashtags' => 'hashtags#update', as: 'update_hashtags'
   end
 
