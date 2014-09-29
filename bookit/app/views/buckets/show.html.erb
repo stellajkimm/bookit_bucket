@@ -26,15 +26,15 @@
 
 			<%= render partial: "items/new" %><br><br>
 
-			<button class="btn-default" data-toggle="modal" data-target= "#edit">EDIT</button>
-			<button class="btn-default"><%= link_to "DELETE", bucket_path(@bucket), method: "delete" %></button>
+			<button class="btn btn-default" data-toggle="modal" data-target= "#edit">EDIT</button>
+			<button class="btn btn-default"><%= link_to "DELETE", bucket_path(@bucket), method: "delete" %></button>
 			<% if @bucket.archive == false %>
-				<button class="btn-default"><%= link_to "ARCHIVE", bucket_archive_path(@bucket), method: "patch" %></button>
+				<button class="btn btn-default"><%= link_to "ARCHIVE", bucket_archive_path(@bucket), method: "patch" %></button>
 			<% else %>
-				<button class="btn-default"><%= link_to "UNARCHIVE", bucket_archive_path(@bucket), method: "patch" %></button>
+				<button class="btn btn-default"><%= link_to "UNARCHIVE", bucket_archive_path(@bucket), method: "patch" %></button>
 			<% end %>
 			<% if @bucket.privacy == "group" %>
-				<button class="btn-default" data-toggle="modal" data-target= "#owners">ADD/REMOVE OWNERS</button>
+				<button class="btn btn-default" data-toggle="modal" data-target= "#owners">ADD/REMOVE OWNERS</button>
 			<% end %>
 		<% end %>
 		<br><br>
