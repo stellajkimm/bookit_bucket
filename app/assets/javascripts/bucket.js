@@ -12,7 +12,7 @@ $(document).ready(function(){
 
 function bucketHover(el) {
 	$(el).hover(function() {
-  		$(this).css('opacity', '.5') },
+  		$(this).css('opacity', '.75') },
   		function() {
   		$(this).css('opacity', '1') })
 }
