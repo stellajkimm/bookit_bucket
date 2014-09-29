@@ -27,6 +27,13 @@ a:visited {
   height: 550px;
 }
 
+.carousel-inner {
+  text-align: center;
+}
+.carousel-inner > .item > img {
+    height: 550px;
+  }
+
 .container {
 	padding: 76px 0px 25px 0px;
 	width: 100%;
