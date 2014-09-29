@@ -44,9 +44,11 @@ gem 'faker'
 
 gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
-# group :production do 
-# 	gem 'rails_12factor'
-# end
+gem 'unicorn'
+
+group :production do 
+	gem 'rails_12factor'
+end
 
 group :assets do
 
