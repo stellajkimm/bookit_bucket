@@ -26,7 +26,7 @@
 
 			<%= render partial: "items/new" %><br><br>
 
-			<button class="btn-default" ><%= link_to "EDIT", edit_bucket_path(@bucket), data: {toggle: "modal", target: "#edit"} %></button>
+			<button class="btn-default" data-toggle="modal" data-target= "#edit">EDIT</button>
 			<button class="btn-default"><%= link_to "DELETE", bucket_path(@bucket), method: "delete" %></button>
 			<% if @bucket.archive == false %>
 				<button class="btn-default"><%= link_to "ARCHIVE", bucket_archive_path(@bucket), method: "patch" %></button>
@@ -45,3 +45,5 @@
 		<% end %>
 	</div>
 </div>
+
+<%= render partial: "modals" %>
