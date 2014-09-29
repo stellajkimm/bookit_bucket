@@ -75,6 +75,10 @@ body {
 .float-clear {
     clear: both;
 }
+
+form > input {
+    margin: 2px;
+}
 .inner-container {
 	width: 100%;
     padding: 5% 20%;
