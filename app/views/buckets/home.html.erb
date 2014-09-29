@@ -3,12 +3,21 @@
 		<h1>ALL YOUR BUCKETSSSS YAAAAAAAAAA</h1>
 	</div>
 	<div class="inner-container divider white"></div>
-	<% @buckets.each do |bucket| %>
-			<%= render partial: "bucket", locals: { bucket: bucket } %>
-	<% end %>
-	<% if @buckets.size % 3 != 0 %>
-		<% (3-(@buckets.size % 3)).times do %>
-			<div class="bucket col-sm-4 col-xs-6 yellow<%= rand(1..5) %>"></div>
+		<% if @buckets.length > 0 %>
+			<% @buckets.each do |bucket| %>
+					<%= render partial: "bucket", locals: { bucket: bucket } %>
+			<% end %>
+			<% if @buckets.size % 3 != 0 %>
+				<% (3-(@buckets.size % 3)).times do %>
+					<div class="bucket col-sm-4 col-xs-6 yellow<%= rand(1..5) %>"></div>
+				<% end %>
+			<% end %>
+		<% else %>
+			<div class="inner-container divider white center">
+				<h3>You do not have any buckets yet!</h3>
+				<button class="btn btn-default" data-toggle="modal" data-target= "#create">CREATE NEW BUCKET</button>
+			</div>
+			<div class="inner-container divider white"></div>
 		<% end %>
-	<% end %>
+	</div>
 </div>
