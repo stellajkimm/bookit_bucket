@@ -8,6 +8,10 @@ Rails.application.routes.draw do
 
   get 'buckets/home' => 'buckets#home'
   get 'buckets/show_archive' => 'buckets#show_archive', as: 'bucket_show_archive'
+  get 'buckets/show_public' => 'buckets#show_public', as: 'bucket_show_public'
+  get 'buckets/show_private' => 'buckets#show_private', as: 'bucket_show_private'
+  get 'buckets/show_group' => 'buckets#show_group', as: 'bucket_show_group'
+  get 'buckets/show_following' => 'buckets#show_following', as: 'bucket_show_following'
   patch 'buckets/:id/archive' => 'buckets#archive', as: 'bucket_archive'
   
   resources :buckets do
