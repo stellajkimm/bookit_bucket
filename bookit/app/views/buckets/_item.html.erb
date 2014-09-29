@@ -1,7 +1,7 @@
 <div class="item <%= item.status %>"> 
 	<div class="panel panel-default">
 	  <% if bucket.privacy == "group" %>
-	  	<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= item.id %>">
+	  	<a data-toggle="collapse" data-parent="#accordion-<%= bucket.id %>" href="#collapse<%= item.id %>">
 	  <% end %>
 		  <div class="panel-heading">
 		    <div class="float-left">

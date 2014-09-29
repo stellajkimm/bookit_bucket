@@ -16,7 +16,7 @@
 
 	</div>
 	<div class="inner-container white">
-		<div class="panel-group" id="accordion" data-length="<%= @items.length %>">
+		<div class="panel-group" id="accordion-<%= @bucket.id %>" data-length="<%= @items.length %>">
 			<% @items.each do |item| %>
 				<%= render partial: 'buckets/item', locals: { bucket: @bucket, item: item } %>
 			<% end %><br>
