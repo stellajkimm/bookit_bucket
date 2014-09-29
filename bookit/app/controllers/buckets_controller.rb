@@ -14,6 +14,10 @@ class BucketsController < ApplicationController
 		@item = Item.new
 		@hashtags = ""
 		@bucket.hashtags.each {|x| @hashtags << "##{x.tag} " }
+
+		@bucket_ownership = @bucket.bucket_ownerships.new
+		# still haven't implemented friends yet so this will change
+		@users_array = User.all - @bucket.owners
 	end
 
 	def create

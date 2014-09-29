@@ -34,7 +34,7 @@
 				<button class="btn-default"><%= link_to "UNARCHIVE", bucket_archive_path(@bucket), method: "patch" %></button>
 			<% end %>
 			<% if @bucket.privacy == "group" %>
-				<button class="btn-default"><%= link_to "ADD/REMOVE OWNERS", bucket_bucket_ownerships_path(@bucket) %></button>
+				<button class="btn-default" data-toggle="modal" data-target= "#owners">ADD/REMOVE OWNERS</button>
 			<% end %>
 		<% end %>
 		<br><br>
