@@ -10,14 +10,14 @@ class BucketOwnershipsController < ApplicationController
 	def create
 		@bucket = Bucket.find(params[:bucket_id])
 		@bucket.bucket_ownerships.create(bucket_ownership_params)
-		redirect_to bucket_bucket_ownerships_path(@bucket)
+		redirect_to bucket_path(@bucket)
 	end
 
 	def destroy
 		@bucket = Bucket.find(params[:bucket_id])
 		@bucket_ownership = @bucket.bucket_ownerships.find_by(user_id: params[:bucket_ownership][:user_id])
 		@bucket_ownership.destroy
-		redirect_to bucket_bucket_ownerships_path(@bucket)
+		redirect_to bucket_path(@bucket)
 	end
 
 	private
