@@ -7,6 +7,7 @@ class BucketsController < ApplicationController
 
 	def home
 		@buckets = current_user.owned_buckets.where(archive: false)
+		@type_of_bucket = "all"
 	end
 
 	def show
@@ -63,9 +64,12 @@ class BucketsController < ApplicationController
 		render 'home'
 	end
 
-	# def show_following
-	# 	@buckets = current_user.owned_buckets.where(archive: false)
-	# end
+	def show_following
+		# this code is show_group code. it is wrong and you need to update this.
+		@buckets = current_user.owned_buckets.where(archive: false, privacy: "group")
+		@type_of_bucket = "following"
+		render 'home'
+	end
 
 	private
   
