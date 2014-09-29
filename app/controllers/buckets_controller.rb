@@ -7,7 +7,7 @@ class BucketsController < ApplicationController
 
 	def home
 		@buckets = current_user.owned_buckets.where(archive: false)
-		@type_of_bucket = "all"
+		@type_of_bucket = ""
 	end
 
 	def show

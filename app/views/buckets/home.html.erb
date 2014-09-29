@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="inner-container yellow5">
-		<h1>ALL YOUR <%= @type_of_bucket.upcase if @type_of_bucket != "all" %> BUCKETSSSS YAAAAAAAAAA</h1>
+		<h1>ALL YOUR <%= @type_of_bucket.upcase %> BUCKETSSSS YAAAAAAAAAA</h1>
 	</div>
 	<div class="inner-container divider white"></div>
 		<% if @buckets.length > 0 %>
@@ -14,8 +14,8 @@
 			<% end %>
 		<% else %>
 			<div class="inner-container divider white center">
-				<h3>You do not have any <%= @type_of_bucket if @type_of_bucket != "all" %> buckets yet!</h3>
-				<button class="btn btn-default" data-toggle="modal" data-target= "#create">CREATE NEW BUCKET</button>
+				<h3>You do not have any <%= @type_of_bucket %> buckets yet!</h3>
+				<button class="btn btn-default" data-toggle="modal" data-target= "#create">CREATE NEW <%= @type_of_bucket.upcase %> BUCKET</button>
 			</div>
 			<div class="inner-container divider white"></div>
 		<% end %>
