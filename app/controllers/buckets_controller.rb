@@ -44,6 +44,22 @@ class BucketsController < ApplicationController
 		@buckets = current_user.owned_buckets.where(archive: true)
 	end
 
+	def show_public
+		@buckets = current_user.owned_buckets.where(archive: false, privacy: "public")
+	end
+
+	def show_private
+		@buckets = current_user.owned_buckets.where(archive: false, privacy: "private")
+	end
+
+	def show_group
+		@buckets = current_user.owned_buckets.where(archive: false, privacy: "group")
+	end
+
+	# def show_following
+	# 	@buckets = current_user.owned_buckets.where(archive: false)
+	# end
+
 	private
   
   def bucket_params
