@@ -27,12 +27,12 @@
 				<% end %>
 				<br>
 				<% if item.attendees.include?(current_user) %>
-					<button class="btn btn-default"><%= link_to "Unattend" %></button>
-					<button class="btn btn-default"><%= link_to "Mark Done" %></button>
+					<button class="btn btn-default"><%= link_to "UNATTEND" %></button>
+					<button class="btn btn-default"><%= link_to "MARK DONE" %></button>
 				<% else %>
-					<button class="btn btn-default"><%= link_to "Attend" %></button>
+					<button class="btn btn-default"><%= link_to "ATTEND" %></button>
 				<% end %>
-					<button class="btn btn-default"><%= link_to "Delete" %></button>
+					<button class="btn btn-default"><%= link_to "DELETE" %></button>
     	<% end %>
 	    </div>
 	  </div>
