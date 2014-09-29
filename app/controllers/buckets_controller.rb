@@ -37,8 +37,8 @@ class BucketsController < ApplicationController
 	end
 
 	def archive
-		bucket.archive == false ? bucket.update(archive: true) : bucket.update(archive: false)
-		redirect_to buckets_home_path
+		@bucket.archive == false ? @bucket.update(archive: true) : @bucket.update(archive: false)
+		redirect_to bucket_show_archive_path
 	end
 
 	def show_archive
