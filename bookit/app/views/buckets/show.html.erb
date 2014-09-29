@@ -16,8 +16,7 @@
 
 	</div>
 	<div class="inner-container white">
-
-		<div class="panel-group" id="accordion" data-length="<%= @items.length %>">
+		<div class="panel-group" id="accordion-<%= @bucket.id %>" data-length="<%= @items.length %>">
 			<% @items.each do |item| %>
 				<%= render partial: 'buckets/item', locals: { bucket: @bucket, item: item } %>
 			<% end %><br>
@@ -27,15 +26,15 @@
 
 			<%= render partial: "items/new" %><br><br>
 
-			<button class="btn-default" ><%= link_to "Edit Bucket", edit_bucket_path(@bucket), data: {toggle: "modal", target: "#edit"} %></button>
-			<button class="btn-default"><%= link_to "Delete Bucket", bucket_path(@bucket), method: "delete" %></button>
+			<button class="btn btn-default" data-toggle="modal" data-target= "#edit">EDIT</button>
+			<button class="btn btn-default"><%= link_to "DELETE", bucket_path(@bucket), method: "delete" %></button>
 			<% if @bucket.archive == false %>
-				<button class="btn-default"><%= link_to "Archive", bucket_archive_path(@bucket), method: "patch" %></button>
+				<button class="btn btn-default"><%= link_to "ARCHIVE", bucket_archive_path(@bucket), method: "patch" %></button>
 			<% else %>
-				<button class="btn-default"><%= link_to "Unarchive", bucket_archive_path(@bucket), method: "patch" %></button>
+				<button class="btn btn-default"><%= link_to "UNARCHIVE", bucket_archive_path(@bucket), method: "patch" %></button>
 			<% end %>
 			<% if @bucket.privacy == "group" %>
-				<button class="btn-default"><%= link_to "Add/Remove Owners", bucket_bucket_ownerships_path(@bucket) %></button>
+				<button class="btn btn-default" data-toggle="modal" data-target= "#owners">ADD/REMOVE OWNERS</button>
 			<% end %>
 		<% end %>
 		<br><br>
@@ -46,3 +45,5 @@
 		<% end %>
 	</div>
 </div>
+
+<%= render partial: "modals" %>

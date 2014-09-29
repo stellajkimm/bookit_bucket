@@ -75,6 +75,10 @@ body {
 .float-clear {
     clear: both;
 }
+
+form > input {
+    margin: 2px;
+}
 .inner-container {
 	width: 100%;
     padding: 5% 20%;
@@ -84,9 +88,10 @@ h1, h3 {
     font-family: "Trocci";
 }
 
-/*img {
-    height: 300px;
-}*/
+.inline {
+    display: inline-block;
+    padding: 2px;
+}
 
 .tab {
     margin-left: 20px;

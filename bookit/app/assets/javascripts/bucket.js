@@ -1,7 +1,16 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready(function(){
 
-$(document).ready(function() {
-	console.log($('#accofrdian').attr('data-length').val())
+	// $.each($('.panel-group').children(), function() {
+	// 	console.log($(this).find('.collapse').hasClass('.in'))
+	// })
 })
+
+var Collapse2 = function (element) {
+	this.$element = $(element)
+}
+
+Collapse2.prototype.show = function () { }
+Collapse2.prototype.hide = function () { }
+Collapse2.prototype.toggle = function () { 
+	this[this.$element.hasClass('in') ? 'hide' : 'show']()
+}

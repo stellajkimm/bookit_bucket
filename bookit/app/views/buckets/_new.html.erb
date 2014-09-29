@@ -1,4 +1,4 @@
-<h1>Create New Bucket</h1>
+<h3>CREATE NEW BUCKET</h3>
 <br>
 	<%= form_for @new_bucket do |f| %>
 	  <%= f.text_field :name, placeholder: "name", size: 55 %>
@@ -6,6 +6,6 @@
 	  <%= f.fields_for :hashtags do |h| %>
     	<%= h.text_field :tag, placeholder: "hashtags (ex. #hash #hash two #hash three)", size: 65 %>
   	<% end %><br><br>
-	  <%= f.submit "Create New Bucket" %>
+	  <%= f.submit "CREATE NEW BUCKET", class: "btn btn-default" %>
 	<% end %>
 <br><br>

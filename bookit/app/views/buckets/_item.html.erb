@@ -1,7 +1,7 @@
 <div class="item <%= item.status %>"> 
 	<div class="panel panel-default">
 	  <% if bucket.privacy == "group" %>
-	  	<a data-toggle="collapse" data-parent="#accordion" href="#collapse<%= item.id %>">
+	  	<a data-toggle="collapse" data-parent="#accordion-<%= bucket.id %>" href="#collapse<%= item.id %>">
 	  <% end %>
 		  <div class="panel-heading">
 		    <div class="float-left">
@@ -15,26 +15,27 @@
 				<% end %>
 				</div>
 		  </div>
-		<% if bucket.privacy == "group" %>
+
+		<% if bucket.privacy == "group" %></a>
 	  <div id="collapse<%= item.id %>" class="panel-collapse collapse float-clear">
 	    <div class="panel-body">
 	    	<% if item.attendees.length > 0 %>
-	    	Attendees: <br>
-	    	<% item.attendees.each do |attendee| %>
-					<%= image_tag attendee.picture, height: '20px' %>
-					<%= link_to attendee.full_name, user_path(attendee) %><br>
-				<% end %>
+		    	Attendees: <br>
+		    	<% item.attendees.each do |attendee| %>
+						<%= image_tag attendee.picture, height: '20px' %>
+						<%= link_to attendee.full_name, user_path(attendee) %><br>
+					<% end %>
 				<% end %>
 				<br>
 				<% if item.attendees.include?(current_user) %>
-					<button class="btn btn-default"><%= link_to "Unattend" %></button>
-					<button class="btn btn-default"><%= link_to "Mark Done" %></button>
+					<button class="btn btn-default"><%= link_to "UNATTEND" %></button>
+					<button class="btn btn-default"><%= link_to "MARK DONE" %></button>
 				<% else %>
-					<button class="btn btn-default"><%= link_to "Attend" %></button>
+					<button class="btn btn-default"><%= link_to "ATTEND" %></button>
 				<% end %>
-					<button class="btn btn-default"><%= link_to "Delete" %></button>
-    	<% end %>
+					<button class="btn btn-default"><%= link_to "DELETE" %></button>
 	    </div>
 	  </div>
+  	<% end %>
 	</div>
 </div> 
