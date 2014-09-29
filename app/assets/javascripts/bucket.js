@@ -3,14 +3,19 @@ $(document).ready(function(){
 	// $.each($('.panel-group').children(), function() {
 	// 	console.log($(this).find('.collapse').hasClass('.in'))
 	// })
+
 	$.each($('.container .bucket'), function() {
-		$(this).hover(function() {
-  		$(this).css('opacity', '.5') },
-  		function() {
-  		$(this).css('opacity', '1') })
+		bucketHover($(this))
 	})
 })
 
+
+function bucketHover(el) {
+	$(el).hover(function() {
+  		$(this).css('opacity', '.5') },
+  		function() {
+  		$(this).css('opacity', '1') })
+}
 
 // var Collapse2 = function (element) {
 // 	this.$element = $(element)
