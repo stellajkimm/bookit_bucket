@@ -1,11 +1,11 @@
 <%= link_to bucket_path(bucket) do %>
-	<div class="bucket <%= 'current_user_' if bucket.creator == current_user && bucket.privacy == "private" %><%= bucket.privacy %>">
-		<strong><%= bucket.name %> by <%= bucket.creator.full_name %></strong>
-		<ul>
+	<div class="bucket col-sm-4 col-xs-6 yellow<%= rand(1..5) %> <%= 'current_user_' if bucket.creator == current_user && bucket.privacy == "private" %><%= bucket.privacy %>">
+<!-- 		<strong><%= bucket.name %> by <%= bucket.creator.full_name %></strong> -->
+		<ol>
 			<% short_list(bucket.id).each do |item| %>
 				<li><%= item.name %></li>
 			<% end %>
-		</ul>
+		</ol>
 		<h5><%= "... and more" if bucket.items.length > 5 %></h5>
 		<% bucket.hashtags.each do |tag| %>
 			<%= link_to "#" + tag.tag, hashtag_path(tag) %> 

@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 20140912043850) do
     t.string   "last_sign_in_ip"
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "username"
     t.string   "phone_number"
     t.string   "location"
     t.string   "picture"

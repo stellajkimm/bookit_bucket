@@ -41,13 +41,15 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'acts_as_follower'
 gem 'faker'
-gem 'rspec-rails'
+
+gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
 # group :production do 
 # 	gem 'rails_12factor'
 # end
 
 group :assets do
+
 end
 
 group :development, :test do
