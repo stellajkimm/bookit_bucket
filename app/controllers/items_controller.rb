@@ -1,6 +1,5 @@
 class ItemsController < ApplicationController
 	def create
-		p params
 		bucket = Bucket.find(params[:bucket_id])
 		item = bucket.items.create(item_params)
 		redirect_to bucket_path(params[:bucket_id])
@@ -8,6 +7,18 @@ class ItemsController < ApplicationController
 
 	def show
 		@item = Item.find(params[:id])
+	end
+
+	def destroy
+		item = Item.find(params[:id])
+		item.destroy
+		redirect_to bucket_path(item.bucket)
+	end
+
+	def status
+		item = Item.find(params[:id])
+		item.status == "done" ? item.update(status: "todo") : item.update(status: "done")
+		redirect_to bucket_path(item.bucket)
 	end
 
 	private

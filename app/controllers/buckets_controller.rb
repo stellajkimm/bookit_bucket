@@ -1,5 +1,6 @@
 class BucketsController < ApplicationController
-		before_filter :load_bucket, only: [:show, :create, :destroy, :update, :archive]
+		before_filter :load_bucket, only: [:show, :destroy, :update, :archive]
+		before_filter :load_new_bucket
 
 	def index
 		@buckets = Bucket.where(archive: false, privacy: "public")
@@ -37,8 +38,8 @@ class BucketsController < ApplicationController
 	end
 
 	def archive
-		bucket.archive == false ? bucket.update(archive: true) : bucket.update(archive: false)
-		redirect_to buckets_home_path
+		@bucket.archive == false ? @bucket.update(archive: true) : @bucket.update(archive: false)
+		redirect_to bucket_show_archive_path
 	end
 
 	def show_archive
@@ -80,6 +81,10 @@ class BucketsController < ApplicationController
 
   def load_bucket
     @bucket = Bucket.find params[:id]
+  end
+
+  def load_new_bucket
+  	@new_bucket = Bucket.new
   end
 end
 
