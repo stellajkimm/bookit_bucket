@@ -27,9 +27,6 @@ a:visited {
   height: 550px;
 }
 
-.carousel-inner {
-  text-align: center;
-}
 .carousel-inner > .item > img {
     height: 550px;
   }

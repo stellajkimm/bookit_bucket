@@ -16,7 +16,6 @@
 
 	</div>
 	<div class="inner-container white">
-
 		<div class="panel-group" id="accordion" data-length="<%= @items.length %>">
 			<% @items.each do |item| %>
 				<%= render partial: 'buckets/item', locals: { bucket: @bucket, item: item } %>
