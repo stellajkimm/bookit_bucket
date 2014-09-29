@@ -1,14 +1,27 @@
 <div class="container">
 	<div class="inner-container yellow5">
-		<h1>ALL YOUR BUCKETSSSS YAAAAAAAAAA</h1>
+		<h1>ALL YOUR <%= @type_of_bucket.upcase %> BUCKETSSSS YAAAAAAAAAA</h1>
 	</div>
 	<div class="inner-container divider white"></div>
-	<% @buckets.each do |bucket| %>
-			<%= render partial: "bucket", locals: { bucket: bucket } %>
-	<% end %>
-	<% if @buckets.size % 3 != 0 %>
-		<% (3-(@buckets.size % 3)).times do %>
-			<div class="bucket col-sm-4 col-xs-6 yellow<%= rand(1..5) %>"></div>
+		<% if @buckets.length > 0 %>
+			<% @buckets.each do |bucket| %>
+					<%= render partial: "bucket", locals: { bucket: bucket } %>
+			<% end %>
+			<% if @buckets.size % 3 != 0 %>
+				<% (3-(@buckets.size % 3)).times do %>
+					<div class="bucket col-sm-4 col-xs-6 yellow<%= rand(1..5) %>"></div>
+				<% end %>
+			<% end %>
+		<% else %>
+			<div class="inner-container divider white center">
+				<h3>You do not have any <%= @type_of_bucket %> buckets yet!</h3>
+				<% if @type_of_bucket != "archive" %>
+					<button class="btn btn-default" data-toggle="modal" data-target= "#create">CREATE NEW <%= @type_of_bucket.upcase %> BUCKET</button>
+				<% else %>
+					<button class="btn btn-default"><%= link_to "VIEW ALL BUCKETS", buckets_home_path %></button>
+				<% end %>
+			</div>
+			<div class="inner-container divider white"></div>
 		<% end %>
-	<% end %>
+	</div>
 </div>
