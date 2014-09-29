@@ -1,5 +1,5 @@
 class BucketsController < ApplicationController
-		before_filter :load_bucket, :except => [:index, :home, :create, :show_archive]
+		before_filter :load_bucket, only: [:show, :create, :destroy, :update, :archive]
 
 	def index
 		@buckets = Bucket.where(archive: false, privacy: "public")
@@ -42,18 +42,25 @@ class BucketsController < ApplicationController
 
 	def show_archive
 		@buckets = current_user.owned_buckets.where(archive: true)
+		@type_of_bucket = "archive"
 	end
 
 	def show_public
 		@buckets = current_user.owned_buckets.where(archive: false, privacy: "public")
+		@type_of_bucket = "public"
+		render 'home'
 	end
 
 	def show_private
 		@buckets = current_user.owned_buckets.where(archive: false, privacy: "private")
+		@type_of_bucket = "private"
+		render 'home'
 	end
 
 	def show_group
 		@buckets = current_user.owned_buckets.where(archive: false, privacy: "group")
+		@type_of_bucket = "group"
+		render 'home'
 	end
 
 	# def show_following
