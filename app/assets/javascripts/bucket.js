@@ -6,15 +6,18 @@ $(document).ready(function(){
 
 	$.each($('.container .bucket'), function() {
 		bucketHover($(this))
+		$(this).find('.bucket_links').hide()
 	})
 })
 
 
 function bucketHover(el) {
 	$(el).hover(function() {
-  		$(this).css('opacity', '.50') },
+  		$(this).css('opacity', '.50')
+  		$(this).find('.bucket_links').show() },
   		function() {
-  		$(this).css('opacity', '1') })
+  		$(this).css('opacity', '1')
+  		$(this).find('.bucket_links').hide() })
 }
 
 // var Collapse2 = function (element) {
