@@ -1,0 +1,2 @@
+module BucketFollowingsHelper
+end
