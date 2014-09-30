@@ -10,4 +10,9 @@
 	<% bucket.hashtags.each do |tag| %>
 		<%= link_to "#" + tag.tag, hashtag_path(tag) %> 
 	<% end %>
+	<div class="bucket_links">
+		<button class="btn btn-default"><%= link_to "VIEW", bucket_path(bucket) %></button>
+		<button class="btn btn-default"><%= link_to "ARCHIVE", bucket_archive_path(bucket) %></button>
+		<button class="btn btn-default"><%= link_to "DELETE", bucket_path(bucket), method: "delete" %></button>
+	</div>
 </div>
