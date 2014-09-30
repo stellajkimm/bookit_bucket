@@ -16,7 +16,13 @@
 		<h2><%= bucket.name %></h2>
 		<h4>by <%= bucket.creator.full_name %></h4>
 		<button class="btn btn-default"><%= link_to "VIEW", bucket_path(bucket) %></button>
-		<button class="btn btn-default"><%= link_to "ARCHIVE", bucket_archive_path(bucket) %></button>
+		<button class="btn btn-default">
+			<% if bucket.archive == false %>
+				<%= link_to "ARCHIVE", bucket_archive_path(bucket), method: "patch" %>
+			<% else %>
+				<%= link_to "UNARCHIVE", bucket_archive_path(bucket), method: "patch" %>
+			<% end %>
+		</button>
 		<button class="btn btn-default"><%= link_to "DELETE", bucket_path(bucket), method: "delete" %></button>
 	</div>
 </div>
