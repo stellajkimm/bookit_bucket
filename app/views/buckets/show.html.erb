@@ -36,9 +36,15 @@
 			<% if @bucket.privacy == "group" %>
 				<button class="btn btn-default" data-toggle="modal" data-target= "#owners">ADD/REMOVE OWNERS</button>
 			<% end %>
+		<% else %>
+			<% if @bucket.followers.include?(current_user) %>
+				<button class="btn btn-default"><%= link_to "UNFOLLOW", bucket_bucket_followings_path(@bucket, @bucket_following), method: "delete" %></button>
+			<% else %>
+				<button class="btn btn-default"><%= link_to "FOLLOW", bucket_bucket_followings_path(@bucket, @bucket_following), method: "post" %></button>
+			<% end %>
 		<% end %>
-		<br><br>
 
+		<br><br>
 
 		<% @bucket.hashtags.each do |tag| %>
 			<%= link_to "##{tag.tag}", hashtag_path(tag) %>
