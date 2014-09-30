@@ -6,18 +6,21 @@ $(document).ready(function(){
 
 	$.each($('.container .bucket'), function() {
 		bucketHover($(this))
-		$(this).find('.bucket_links').hide()
+		$(this).find('.bucket-links').hide()
 	})
 })
 
 
 function bucketHover(el) {
+	var color = $(el).css('background-color')
 	$(el).hover(function() {
-  		$(this).css('opacity', '.50')
-  		$(this).find('.bucket_links').show() },
+  		$(this).css('background-color', color.replace(')','').replace('rgb', 'rgba') + ", .3)")
+  		$(this).find('.bucket-content').css('opacity', '.50')
+  		$(this).find('.bucket-links').show() },
   		function() {
-  		$(this).css('opacity', '1')
-  		$(this).find('.bucket_links').hide() })
+  		$(this).css('background-color', color)
+  		$(this).find('.bucket-content').css('opacity', '1')
+  		$(this).find('.bucket-links').hide() })
 }
 
 // var Collapse2 = function (element) {

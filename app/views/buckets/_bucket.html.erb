@@ -1,4 +1,5 @@
 <div class="bucket col-sm-4 col-xs-6 yellow<%= rand(1..5) %> <%= 'current_user_' if bucket.creator == current_user && bucket.privacy == "private" %><%= bucket.privacy %>">
+	<div class="bucket-content">
 	<%= link_to bucket_path(bucket) do %>
 		<ol>
 			<% short_list(bucket.id).each do |item| %>
@@ -10,7 +11,10 @@
 	<% bucket.hashtags.each do |tag| %>
 		<%= link_to "#" + tag.tag, hashtag_path(tag) %> 
 	<% end %>
-	<div class="bucket_links">
+	</div>
+	<div class="bucket-links">
+		<h2><%= bucket.name %></h2>
+		<h4>by <%= bucket.creator.full_name %></h4>
 		<button class="btn btn-default"><%= link_to "VIEW", bucket_path(bucket) %></button>
 		<button class="btn btn-default"><%= link_to "ARCHIVE", bucket_archive_path(bucket) %></button>
 		<button class="btn btn-default"><%= link_to "DELETE", bucket_path(bucket), method: "delete" %></button>
