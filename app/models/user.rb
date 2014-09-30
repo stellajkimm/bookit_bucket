@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   has_many :bucket_ownerships
   has_many :owned_buckets, through: :bucket_ownerships, source: :bucket
   has_many :created_buckets, class_name: "Bucket", foreign_key: :user_id
+  has_many :bucket_followings
+  has_many :followed_buckets, through: :bucket_followings, source: :bucket
   has_many :attendances
   has_many :attending_items, through: :attendances, source: :item
 

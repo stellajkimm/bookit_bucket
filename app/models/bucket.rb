@@ -6,6 +6,8 @@ class Bucket < ActiveRecord::Base
   has_many :hashtags, through: :bucket_hashtags
   has_many :bucket_ownerships
   has_many :owners, through: :bucket_ownerships, source: :user
+  has_many :bucket_followings
+  has_many :followers, through: :bucket_followings, source: :user
   has_many :items
 
   def make_ownership

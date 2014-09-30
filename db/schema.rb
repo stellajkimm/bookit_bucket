@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912043850) do
+ActiveRecord::Schema.define(version: 20140930034746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,16 @@ ActiveRecord::Schema.define(version: 20140912043850) do
 
   add_index "attendances", ["item_id"], name: "index_attendances_on_item_id", using: :btree
   add_index "attendances", ["user_id"], name: "index_attendances_on_user_id", using: :btree
+
+  create_table "bucket_followings", force: true do |t|
+    t.integer  "bucket_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bucket_followings", ["bucket_id"], name: "index_bucket_followings_on_bucket_id", using: :btree
+  add_index "bucket_followings", ["user_id"], name: "index_bucket_followings_on_user_id", using: :btree
 
   create_table "bucket_hashtags", force: true do |t|
     t.integer  "bucket_id"
