@@ -28,7 +28,7 @@ class BucketsController < ApplicationController
 	end
 
 	def destroy
-		bucket.destroy
+		@bucket.destroy
 		redirect_to buckets_home_path
 	end
 
