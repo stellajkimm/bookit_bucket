@@ -21,13 +21,14 @@
 	padding: 7px 25px;
 	display: inline-block;
 	font-size: 1.3em;
+	overflow: hidden;
 }
 
 .bucket-links {
 	position: absolute;
 	bottom: 5px;
 	left: 5px;
-	
+
 	h2, h4 {
 		color: white;
 	}
