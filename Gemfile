@@ -38,6 +38,7 @@ gem 'dotenv-rails', '~> 0.11.1'
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+gem 'jquery-turbolinks'
 gem 'devise'
 gem 'acts_as_follower'
 gem 'faker'

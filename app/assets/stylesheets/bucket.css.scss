@@ -21,11 +21,15 @@
 	padding: 7px 25px;
 	display: inline-block;
 	font-size: 1.3em;
+	overflow: hidden;
 }
 
-/*a:hover { 
-		background-color: black;
-	.bucket {
-		font-size: 2em;
+.bucket-links {
+	position: absolute;
+	bottom: 5px;
+	left: 5px;
+
+	h2, h4 {
+		color: white;
 	}
-}*/
+}
