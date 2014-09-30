@@ -68,7 +68,7 @@ class BucketsController < ApplicationController
 
 	def show_following
 		# this code is show_group code. it is wrong and you need to update this.
-		@buckets = current_user.owned_buckets.where(archive: false, privacy: "group")
+		@buckets = current_user.followed_buckets.where(archive: false)
 		@type_of_bucket = "following"
 		render 'home'
 	end
