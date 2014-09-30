@@ -20,8 +20,10 @@ Rails.application.routes.draw do
       resources :attendances, only: [:create]
       delete 'attendances' => 'attendances#destroy'
     end
-    resources :bucket_ownerships, only: [:index, :create]
+    resources :bucket_ownerships, only: [:create]
     delete 'bucket_ownerships' => 'bucket_ownerships#destroy'
+    resources :bucket_followings, only: [:create]
+    delete 'bucket_followings' => 'bucket_followings#destroy'
     get 'update_hashtags' => 'hashtags#update', as: 'update_hashtags'
   end
 

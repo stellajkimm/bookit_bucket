@@ -81,6 +81,7 @@ class BucketsController < ApplicationController
 
   def load_bucket
     @bucket = Bucket.find params[:id]
+    @bucket_following = @bucket.bucket_followings.new
   end
 
   def load_new_bucket
