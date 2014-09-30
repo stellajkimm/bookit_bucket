@@ -16,9 +16,6 @@
 		<h2><%= bucket.name %></h2>
 		<h4>by <%= bucket.creator.full_name %></h4>
 		<button class="btn btn-default"><%= link_to "VIEW", bucket_path(bucket) %></button>
-		<% if !bucket.owners.include?(current_user) %>
-			<button class="btn btn-default"><%= link_to "FOLLOW" %></button>
-		<% end %>
 		<% if bucket.owners.include?(current_user) %>
 			<button class="btn btn-default">
 				<% if bucket.archive == false %>
@@ -27,6 +24,12 @@
 					<%= link_to "UNARCHIVE", bucket_archive_path(bucket), method: "patch" %>
 				<% end %>
 			</button>
+		<% else %>
+			<% if bucket.followers.include?(current_user) %>
+				<button class="btn btn-default"><%= link_to "UNFOLLOW", bucket_bucket_followings_path(bucket, @bucket_following), method: "delete" %></button>
+			<% else %>
+				<button class="btn btn-default"><%= link_to "FOLLOW", bucket_bucket_followings_path(bucket, @bucket_following), method: "post" %></button>
+			<% end %>
 		<% end %>
 		<% if bucket.creator == current_user %>
 			<button class="btn btn-default"><%= link_to "DELETE", bucket_path(bucket), method: "delete" %></button>
