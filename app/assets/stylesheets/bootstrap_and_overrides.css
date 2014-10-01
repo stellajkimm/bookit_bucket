@@ -18,7 +18,7 @@ a:visited {
 }
 
 .btn-default {
-  font-family: $font2;
+  font-family: $font1;
   background-color: #ffda39;
   border-color: #ffda39;
 }
