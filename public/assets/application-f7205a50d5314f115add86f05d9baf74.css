@@ -1790,7 +1790,7 @@ body:after {
 body {
     border-left: 25px solid gray;
     border-right: 25px solid gray;  
-    font-family: "Trocci";
+    font-family: $font1;
 		font-size: 16px;
 }
 

@@ -14,9 +14,11 @@
  *= require_self
  *= require 'twitter-bootstrap-static/bootstrap'
  */
-@import url(http://fonts.googleapis.com/css?family=Playfair+Display|Oswald:400);
+@import url(http://fonts.googleapis.com/css?family=Playfair+Display|Oswald:400|Roboto+Condensed);
 @import url(http://fonts.googleapis.com/css?family=Amatic+SC:700|Alike);
 @import url(http://fonts.googleapis.com/css?family=Quicksand|Francois+One|Trocchi);
+
+$font1: 'Roboto Condensed';
 
 .yellow1 {
     background-color: #FFEFA4;
@@ -60,7 +62,7 @@ body:after {
 body {
     border-left: 25px solid #404040;
     border-right: 25px solid #404040;  
-    font-family: "Trocci";
+    font-family: $font1;
 	font-size: 16px;
     background-color: #5B5950;
 }
@@ -88,7 +90,7 @@ form > input {
 }
 
 h1, h3 {
-    font-family: "Trocci";
+    font-family: $font1;
 }
 
 .inline {
@@ -100,8 +102,8 @@ h1, h3 {
     margin-left: 20px;
 }
 
-.trocci {
-    font-family: "Trocci";
+.font1 {
+    font-family: $font1;
 }
 
 input[type="text"] {
