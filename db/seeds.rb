@@ -3,8 +3,9 @@ require 'faker'
 privacy = ["public", "private"] # also group
 status = ["done", "todo"]
 
+hashtags = { restaurant: ["cheap eats", "fine dining", ""]}
 10.times do
-	Hashtag.create(tag: Faker::Commerce.product_name)
+	Hashtag.create(tag: "restaurant")
 end
 
 20.times do

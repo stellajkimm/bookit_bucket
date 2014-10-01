@@ -11,7 +11,7 @@ class BucketsController < ApplicationController
 		@buckets = current_user.owned_buckets.where(archive: false)
 		@followed_buckets = current_user.followed_buckets
 		@number_of_buckets = @buckets.size + @followed_buckets.size
-		@type_of_bucket = ""
+		@type_of_bucket = "all"
 	end
 
 	def show
