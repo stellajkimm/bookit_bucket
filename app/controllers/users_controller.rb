@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => [:show]
 
   def index
   end
@@ -9,6 +9,7 @@ class UsersController < ApplicationController
 
   def create
     current_user
+    redirect_to user_path(current_user)
   end
 
   def update
@@ -31,6 +32,6 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :username, :email, :phone_number, :location)
+    params.require(:user).permit(:first_name, :last_name, :username, :email, :phone_number, :location, :picture)
   end
 end

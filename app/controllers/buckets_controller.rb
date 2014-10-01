@@ -3,7 +3,7 @@ class BucketsController < ApplicationController
 		before_filter :load_new_bucket
 
 	def index
-		@buckets = Bucket.where(archive: false, privacy: "public")
+		@buckets = Bucket.where(archive: false).where.not(privacy: "private")
 		@number_of_buckets = @buckets.size
 	end
 

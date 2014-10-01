@@ -52,22 +52,29 @@ end
 			bucket.bucket_hashtags.find_or_create_by(hashtag_id: tag.id)
 		end
 
-		#need a better algorithm to seed mostly non-group buckets
-		[0,0,0,0,0,0,0,0,0,0,1,2,3,4,5].sample.times do
-			bucket.bucket_ownerships.create(user_id: rand(1..31))
+		if category == "activites" || category == "friends"
+			rand(3..8).times do
+				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
+				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				bucket.save
+			end
 		end
 
-		bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
-		bucket.save
+		if category == "dates"
+				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
+				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				bucket.save
+		end
 
 		10.times do
 			location = Faker::Address.city + ", " + Faker::Address.state_abbr
-			item = bucket.items.create(name: Faker::Company.bs, status: status.sample)
+			item = bucket.items.find_or_create_by(name: items[category].sample)
+			item.update(status: status.sample)
 			item.location = location if items_with_locations.include?(category)
 			item.save
 			if bucket.privacy == "group"
 				rand(0..bucket.bucket_ownerships.length).times do
-					item.attendances.create(user_id: bucket.bucket_ownerships.sample.user_id)
+					item.attendances.find_or_create_by(user_id: bucket.bucket_ownerships.sample.user_id)
 				end
 			end
 		end
@@ -86,22 +93,29 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 			bucket.bucket_hashtags.find_or_create_by(hashtag_id: tag.id)
 		end
 
-		#need a better algorithm to seed mostly non-group buckets
-		[0,0,0,0,0,0,0,0,0,0,1,2,3,4,5].sample.times do
-			bucket.bucket_ownerships.create(user_id: rand(1..31))
+		if category == "activites" || category == "friends"
+			rand(3..8).times do
+				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
+				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				bucket.save
+			end
 		end
 
-		bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
-		bucket.save
+		if category == "dates"
+				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
+				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				bucket.save
+		end
 
 		10.times do
 			location = Faker::Address.city + ", " + Faker::Address.state_abbr
-			item = bucket.items.create(name: Faker::Company.bs, status: status.sample)
+			item = bucket.items.find_or_create_by(name: items[category].sample)
+			item.update(status: status.sample)
 			item.location = location if items_with_locations.include?(category)
 			item.save
 			if bucket.privacy == "group"
 				rand(0..bucket.bucket_ownerships.length).times do
-					item.attendances.create(user_id: bucket.bucket_ownerships.sample.user_id)
+					item.attendances.find_or_create_by(user_id: bucket.bucket_ownerships.sample.user_id)
 				end
 			end
 		end

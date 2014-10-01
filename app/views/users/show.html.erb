@@ -1,6 +1,10 @@
 <div class="container">
 	<div class="inner-container yellow4">
-		<h1><%= @user.full_name.upcase %><br><em><%= @user.location %></em></h1>
+			<div class="circular inline" style = 'background-image: url(<%= @user.picture %>);'><%= image_tag @user.picture, height: '50px' %></div>
+			<div class="inline tab">
+				<h1 class="font2"><strong><%= @user.full_name.upcase %></strong></h1>
+				<h2 class="font2"><strong><em><%= @user.location %></em></strong></h2>
+			</div>
 	</div>
 	<div class="inner-container white">
 		<table>
@@ -32,8 +36,11 @@
 		</table>
 		<br><br>
 			<% if @user == current_user %>
-			  <%= f.submit "Update Settings", class: "btn btn-default" %>
+			  <%= f.submit "UPDATE SETTINGS", class: "btn btn-default" %>
 			<% end %>
+		<% end %>
+		<% if @user == current_user %>
+		  <button class="btn btn-default" data-toggle="modal" data-target= "#photo">UPDATE PHOTO</button>
 		<% end %>
 	</div>
 
@@ -41,10 +48,12 @@
 			<% @user.owned_buckets.each do |bucket| %>
 					<%= render partial: "buckets/bucket", locals: { bucket: bucket } %>
 			<% end %>
-			<% if @user.owned_buckets.size % 3 != 0 %>
-				<% (3-(@user.owned_buckets.size % 3)).times do %>
-					<div class="bucket col-sm-4 col-xs-6 yellow<%= rand(1..5) %>"></div>
+			<% if @user.owned_buckets.size % 4 != 0 %>
+				<% (4-(@user.owned_buckets.size % 4)).times do %>
+					<div class="bucket col-sm-3 col-xs-4 yellow<%= rand(1..5) %>"></div>
 				<% end %>
 			<% end %>
 	<% end %>
 </div>
+
+<%= render partial: "modals" %>
