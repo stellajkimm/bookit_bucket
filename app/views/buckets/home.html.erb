@@ -20,6 +20,7 @@
 		<% else %>
 			<div class="inner-container white center">
 				<h2 class="font2">You do not have any <%= @type_of_bucket %> buckets yet!</h2>
+				<br>
 				<% if @type_of_bucket != "archive" %>
 					<button class="btn btn-default" data-toggle="modal" data-target= "#create">CREATE NEW BUCKET</button>
 				<% else %>

@@ -101,6 +101,7 @@ form > input {
 }
 
 h1, h3 {
+    font-size: 3em;
     font-family: $font1;
 }
 
@@ -111,6 +112,10 @@ h1, h3 {
 
 .tab {
     margin-left: 20px;
+}
+
+table > tbody > tr > td > input {
+    font-family: $font2;
 }
 
 input[type="text"] {
