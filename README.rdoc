@@ -8,4 +8,4 @@
 
 == HEROKU
 
-* http://bookit-bucket.herouapp.com
+* http://bookit-bucket.herokuapp.com
