@@ -5,9 +5,9 @@
 	  <% end %>
 		  <div class="panel-heading">
 		    <div class="float-left">
-		    <h4 class="panel-title">
-	        <%= item.name %><%= " - " + item.location if !item.location.empty? %>
-		    </h4>
+		    <h2 class="panel-title font2">
+	        <%= item.name %><%= " - " + item.location if item.location %>
+		    </h2>
 		    </div>
 		    <div class="float-right">
 	      <% item.attendees.each do |attendee| %>
