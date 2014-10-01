@@ -6,7 +6,7 @@
 		  <div class="panel-heading">
 		    <div class="float-left">
 		    <h2 class="panel-title font2 <%= item.status %>">
-	        <%= item.name %><%= " - " + item.location if item.location %>
+	        <%= item.name %><em><%= " - " + item.location if item.location %></em>
 		    </h2>
 		    </div>
 		    <% if bucket.privacy == "group" %>
