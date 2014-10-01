@@ -19,7 +19,15 @@
 @import url(http://fonts.googleapis.com/css?family=Quicksand|Francois+One|Trocchi);
 
 $font1: 'Roboto Condensed';
+$font2: 'Trocci';
 
+.font1 {
+    font-family: $font1;
+}
+
+.font2 {
+    font-family: $font2;
+}
 .yellow1 {
     background-color: #FFEFA4;
 }
@@ -70,6 +78,9 @@ body {
 .center {
     text-align: center;
 }
+.divide {
+    height: 25px;
+}
 .float-left {
     float: left;
 }
@@ -100,10 +111,6 @@ h1, h3 {
 
 .tab {
     margin-left: 20px;
-}
-
-.font1 {
-    font-family: $font1;
 }
 
 input[type="text"] {

@@ -18,7 +18,7 @@ a:visited {
 }
 
 .btn-default {
-  font-family: "Quicksand";
+  font-family: $font2;
   background-color: #ffda39;
   border-color: #ffda39;
 }
@@ -63,7 +63,7 @@ a:visited {
 
 .modal {
   margin: 0px auto;
-  font-family: "Quicksand";
+  font-family: $font1;
 }
 
 .modal-header {
@@ -71,13 +71,13 @@ a:visited {
 }
 
 .modal-body > h3 {
-    font-family: "Quicksand";
+    font-family: $font1;
 }
 /* navbar */
 .navbar-default {
     background-color: #ffffff;
     border-color: #E7E7E7;
-    font-family: "Quicksand";
+    font-family: $font1;
     font-size: 1.2em;
     margin: 25px;
 }
