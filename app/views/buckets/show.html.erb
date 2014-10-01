@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="inner-container yellow5">
-			<h1 class="inline font2"><strong><%= @bucket.name %></strong></h1>
-			<h2 class="inline font2"><strong><em>by <%= @bucket.creator.full_name %></em></strong></h2>
+			<h1 class="font2"><strong><%= @bucket.name %></strong></h1>
+			<h2 class="font2"><strong><em>by <%= @bucket.creator.full_name %></em></strong></h2>
 		<h3>Privacy: <%= @bucket.privacy %></h3>
 
 		<% if @bucket.owners.length > 1 %>
