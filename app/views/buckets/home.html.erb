@@ -1,6 +1,6 @@
 <div class="container">
 	<div class="inner-container yellow5">
-		<h1><%= current_user.full_name.upcase + "'S  " if !current_user.first_name.nil? %><%= @type_of_bucket.upcase + "  " %>BUCKETS</h1>
+		<h1><%= @type_of_bucket.upcase + "  " %>BUCKETS</h1>
 	</div>
 	<div class="inner-container divide white"></div>
 		<% if @buckets.length > 0 %>

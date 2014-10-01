@@ -114,7 +114,7 @@ h1, h3 {
     margin-left: 20px;
 }
 
-table > tbody > tr > td > input {
+input:not([type="submit"]) {
     font-family: $font2;
 }
 
