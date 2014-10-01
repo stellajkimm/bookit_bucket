@@ -9,9 +9,11 @@
 	        <%= item.name %><%= " - " + item.location if item.location %>
 		    </h2>
 		    </div>
-		    <div class="float-right">
-	      # of Attending: <%= item.attendees.length %>
-				</div>
+		    <% if bucket.privacy == "group" %>
+			    <div class="float-right">
+		      # of Attending: <%= item.attendees.length %>
+					</div>
+				<% end %>
 		  </div>
 
 		<% if bucket.privacy == "group" %></a>
