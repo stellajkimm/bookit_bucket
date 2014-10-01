@@ -9,7 +9,7 @@ hashtags = { "restaurants" => ["cheap eats", "casual", "fine dining", "italian",
 						"dates" => ["boyfriend", "girlfriend", "adventures", "love", "valentine", "romantic", "fun", "beautiful", "weekend trip", "weekend"],
 						"friends" => ["friends", "activities", "weekend", "adventures", "best friends", "weekend trip", "fun", "out of state", "group activities", "group"],
 						"things to buy" => ["gift for myself", "gift list", "necessities", "want", "give it to me", "want", "need", "gift", "gimme", "please"],
-						"things to do" => ["urgent", "important", "today", "tomorrow", "weekend", "chores", "to do", "mama said so", "routine"]
+						"things to do" => ["urgent", "important", "today", "tomorrow", "weekend", "chores", "to do", "mama said so", "routine"],
 						"before i die" => ["bucket", "life goals", "wishes", "before i die", "dreams come true"],
 						"places to visit" => ["asia", "europe", "latin america", "south america", "north america", "africa", "beach", "city", "rural", "suburbs"],
 						"activities" => ["free", "expensive", "close by", "casual", "solo", "with friends", "fun"]
@@ -48,7 +48,7 @@ end
 		category = categories.sample
 		bucket = user.created_buckets.create(name: bucket_titles[category].sample, privacy: privacy.sample)		
 		(0..3).to_a.sample.times do 
-			tag = Hashtag.find(hashtags[category].sample)
+			tag = Hashtag.find_by(tag: hashtags[category].sample)
 			bucket.bucket_hashtags.find_or_create_by(hashtag_id: tag.id)
 		end
 
@@ -82,7 +82,7 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 		category = categories.sample
 		bucket = user.created_buckets.create(name: bucket_titles[category].sample, privacy: privacy.sample)		
 		(0..3).to_a.sample.times do 
-			tag = Hashtag.find(hashtags[category].sample)
+			tag = Hashtag.find_by(tag: hashtags[category].sample)
 			bucket.bucket_hashtags.find_or_create_by(hashtag_id: tag.id)
 		end
 
