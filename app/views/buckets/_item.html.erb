@@ -31,7 +31,7 @@
 					<% end %>
 				<% end %>
 				<br><br>
-				<% if current_user %>
+				<% if current_user && bucket.owners.include?(current_user) %>
 				<% if item.attendees.include?(current_user) %>
 						<button class="btn btn-default"><%= link_to "UNATTEND", bucket_item_attendances_path(bucket, item), method: "delete" %></button>
 					<% else %>
