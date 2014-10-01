@@ -36,8 +36,11 @@
 		</table>
 		<br><br>
 			<% if @user == current_user %>
-			  <%= f.submit "Update Settings", class: "btn btn-default" %>
+			  <%= f.submit "UPDATE SETTINGS", class: "btn btn-default" %>
 			<% end %>
+		<% end %>
+		<% if @user == current_user %>
+		  <button class="btn btn-default" data-toggle="modal" data-target= "#photo">UPDATE PHOTO</button>
 		<% end %>
 	</div>
 
@@ -52,3 +55,5 @@
 			<% end %>
 	<% end %>
 </div>
+
+<%= render partial: "modals" %>
