@@ -1,6 +1,10 @@
 <div class="container">
-	<div class="inner-container yellow4 font2">
-		<h1><%= @user.full_name.upcase %><br><em><span class="font2"><%= @user.location %></span></em></h1>
+	<div class="inner-container yellow4">
+			<div class="circular inline" style = 'background-image: url(<%= @user.picture %>);'><%= image_tag @user.picture, height: '50px' %></div>
+			<div class="inline tab">
+				<h1 class="font2"><strong><%= @user.full_name.upcase %></strong></h1>
+				<h2 class="font2"><strong><em><%= @user.location %></em></strong></h2>
+			</div>
 	</div>
 	<div class="inner-container white">
 		<table>
