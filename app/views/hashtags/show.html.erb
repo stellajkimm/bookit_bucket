@@ -12,9 +12,9 @@
 	</div> -->
 
 <div class="inner-container white">
-	<%= form_tag @hashtag, url: {action: "search"},  method: "get", class: "form-group", html_options: { role: "search" } do |f| %>
-    <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "(ex. this whole sentence is a hashtag) THIS DOESNT WORK YET" %>
-    <%= submit_tag "Search", name: nil, class: "btn btn-default" %>
+	<%= form_for @hashtag, url: {action: "search"},  method: "get" do |f| %>
+    <%= f.text_field :tag, class: "form-control", placeholder: "(ex. this whole sentence is a hashtag) THIS DOESNT WORK YET" %>
+    <%= f.submit "Search", name: nil, class: "btn btn-default" %>
   <% end %>
 </div>
 

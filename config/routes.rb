@@ -27,6 +27,7 @@ Rails.application.routes.draw do
     get 'update_hashtags' => 'hashtags#update', as: 'update_hashtags'
   end
 
+  get 'hashtags/search' => 'hashtags#search', as: 'hashtag_search'
   resources :hashtags, only: [:show]
 
 

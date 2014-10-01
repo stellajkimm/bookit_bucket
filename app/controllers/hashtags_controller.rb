@@ -19,8 +19,11 @@ class HashtagsController < ApplicationController
 	end
 
 	def search
-    # @hashtag = Hashtag.find(params[:id])
-    # @buckets = Buckets.all
+    @hashtag = Hashtag.find_by(hashtag_params)
+    render 'show'
   end
 
+  def hashtag_params
+    params.require(:hashtag).permit(:tag)
+  end
 end
