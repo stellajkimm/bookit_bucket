@@ -45,9 +45,9 @@
 			<% @user.owned_buckets.each do |bucket| %>
 					<%= render partial: "buckets/bucket", locals: { bucket: bucket } %>
 			<% end %>
-			<% if @user.owned_buckets.size % 3 != 0 %>
-				<% (3-(@user.owned_buckets.size % 3)).times do %>
-					<div class="bucket col-sm-4 col-xs-6 yellow<%= rand(1..5) %>"></div>
+			<% if @user.owned_buckets.size % 4 != 0 %>
+				<% (4-(@user.owned_buckets.size % 4)).times do %>
+					<div class="bucket col-sm-3 col-xs-4 yellow<%= rand(1..5) %>"></div>
 				<% end %>
 			<% end %>
 	<% end %>
