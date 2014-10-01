@@ -1,11 +1,11 @@
-<div class="item <%= item.status %>"> 
-	<div class="panel panel-default">
+<div class="item"> 
+	<div class="panel panel-default <%= item.status %>">
 	  <% if bucket.privacy == "group" %>
 	  	<a data-toggle="collapse" data-parent="#accordion-<%= bucket.id %>" href="#collapse<%= item.id %>">
 	  <% end %>
 		  <div class="panel-heading">
 		    <div class="float-left">
-		    <h2 class="panel-title font2">
+		    <h2 class="panel-title font2 <%= item.status %>">
 	        <%= item.name %><%= " - " + item.location if item.location %>
 		    </h2>
 		    </div>

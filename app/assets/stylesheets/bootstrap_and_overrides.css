@@ -120,7 +120,18 @@ h1 {
   border: none;
   padding: 10px;
 }
-
+.panel-default {
+  margin: 5px;
+}
 .panel-default > .panel-heading {
   background-color: transparent;
+}
+
+.panel-title {
+  margin-top: 0;
+  margin-bottom: 0;
+  font-size: 24px;
+  color: inherit;
+  position: relative;
+  bottom: 10px;
 }
