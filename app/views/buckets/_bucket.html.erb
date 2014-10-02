@@ -17,7 +17,7 @@
   	<% bucket.owners.each do |owner| %>
 			<div class="inline center">
 	  		<%= link_to user_path(owner) do %>
-	    		<div class="circular" style = 'background-image: url(<%= owner.picture %>);'><%= image_tag owner.picture, height: '10px' %></div>
+	    		<div class="circular height35" style = 'background-image: url(<%= owner.picture %>);'><%= image_tag owner.picture %></div>
 				<% end %>
 			</div>
 		<% end %>

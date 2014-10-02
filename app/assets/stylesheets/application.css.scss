@@ -93,8 +93,8 @@ body {
     border-radius: 50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
-    width: 35px;
-    height: 35px;
+    width: 100px;
+    height: 100px;
 }
 
 .divide {
@@ -146,3 +146,8 @@ input[type="text"] {
 input[type="text"]:focus {
     outline: 5px auto #ffda39;
 } 
+
+.height35 img {
+    width: 35px;
+    height: 35px;
+}

@@ -11,7 +11,13 @@
 		    </div>
 		    <% if bucket.privacy == "group" %>
 			    <div class="float-right">
-		      # of Attending: <%= item.attendees.length %>
+		      	<% item.attendees.each do |attendee| %>
+			    		<div class="inline center">
+				    		<%= link_to user_path(attendee) do %>
+					    		<div class="circular height35" style = 'background-image: url(<%= attendee.picture %>); '><%= image_tag attendee.picture %></div>
+								<% end %>
+							</div>
+						<% end %>
 					</div>
 				<% end %>
 		  </div>
