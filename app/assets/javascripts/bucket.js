@@ -9,7 +9,21 @@ $(document).ready(function(){
 		$(this).find('.bucket-links').hide()
 		$(this).find('.bucket-owners').hide()
 	})
+
+	$.each($('.panel.panel-default'), function() {
+		itemClick($(this))
+	})
 })
+
+function itemClick(el) {
+	$(el).on('click', function() {
+		if ($(this).find('.panel-collapse').hasClass('.in')) {
+			$(this).find('.attendees').hide()
+		} else {
+			$(this).find('.attendees').show()
+		}
+	})
+}
 
 
 function bucketHover(el) {
