@@ -13,6 +13,16 @@
 	<% end %>
 	</div>
 
+	<div class="bucket-owners">
+  	<% bucket.owners.each do |owner| %>
+			<div class="inline center">
+	  		<%= link_to user_path(owner) do %>
+	    		<div class="circular" style = 'background-image: url(<%= owner.picture %>);'><%= image_tag owner.picture, height: '10px' %></div>
+				<% end %>
+			</div>
+		<% end %>
+	</div>
+
 	<div class="bucket-links">
 		<h2 class="font2"><strong><%= bucket.name %></strong></h2>
 		<h4 class="font2">by <%= bucket.creator.full_name %></h4>
