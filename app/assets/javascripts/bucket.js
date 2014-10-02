@@ -7,6 +7,7 @@ $(document).ready(function(){
 	$.each($('.container .bucket'), function() {
 		bucketHover($(this))
 		$(this).find('.bucket-links').hide()
+		$(this).find('.bucket-owners').hide()
 	})
 })
 
@@ -16,11 +17,13 @@ function bucketHover(el) {
 	$(el).hover(function() {
   		$(this).css('background-color', color.replace(')','').replace('rgb', 'rgba') + ", .3)")
   		$(this).find('.bucket-content').css('opacity', '.50')
-  		$(this).find('.bucket-links').show() },
+  		$(this).find('.bucket-links').show()
+  		$(this).find('.bucket-owners').show() },
   		function() {
   		$(this).css('background-color', color)
   		$(this).find('.bucket-content').css('opacity', '1')
-  		$(this).find('.bucket-links').hide() })
+  		$(this).find('.bucket-links').hide()
+  		$(this).find('.bucket-owners').hide() })
 }
 
 // var Collapse2 = function (element) {
