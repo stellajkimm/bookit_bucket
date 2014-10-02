@@ -10,7 +10,7 @@
 		    </h2>
 		    </div>
 		    <% if bucket.privacy == "group" %>
-			    <div class="float-right">
+			    <div class="float-right attendees">
 		      	<% item.attendees.each do |attendee| %>
 			    		<div class="inline center">
 				    		<%= link_to user_path(attendee) do %>
