@@ -52,7 +52,6 @@ group :production do
 end
 
 group :assets do
-
 end
 
 group :development, :test do
