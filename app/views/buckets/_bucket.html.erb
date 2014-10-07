@@ -1,4 +1,4 @@
-<div class="bucket col-sm-3 col-xs-4 <%= bucket.privacy == "group" ? "green" : "yellow" + rand(1..5).to_s %>">
+<div class="bucket col-sm-3 col-xs-4 <%= "yellow" + rand(1..5).to_s %>">
 	<div class="bucket-content">
 	<%= link_to bucket_path(bucket) do %>
 		<ol>
