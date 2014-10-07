@@ -41,7 +41,7 @@ end
 
 30.times do |index|
 	user_location = Faker::Address.city + ", " + Faker::Address.state_abbr
-	user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone_number: Faker::PhoneNumber.phone_number, password: "password", location: user_location, picture: "people/marko_kovacevic-dbc_headshots-2014-05-28-square-#{index}.jpg")
+	user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone_number: Faker::PhoneNumber.phone_number, password: "password", location: user_location, picture: "people/marko_kovacevic-dbc_headshots-2014-05-28-square-#{index + 1}.jpg")
 	user.update(username: "#{user.first_name.downcase}_#{user.last_name.downcase}")
 
 	rand(1..8).times do
