@@ -1,5 +1,5 @@
 <div class="bucket col-sm-3 col-xs-4">
-	<div class="bucket-background bucket-fade" style='background-image: url(<%= bucket.image %>); background-size: 105% 105%;'></div>
+	<div class="bucket-background bucket-fade" style='background-image: url(<%= '../' + bucket.image %>); background-size: 105% 105%;'></div>
 	<div class="bucket-content">
 		<%= link_to bucket_path(bucket) do %>
 			<ol>
