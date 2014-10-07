@@ -4,7 +4,7 @@
 		<a data-toggle="collapse" data-parent="#accordion-<%= bucket.id %>" href="#collapse<%= item.id %>">
 		  <div class="panel-heading">
 		    <div class="float-left">
-			    <h2 class="panel-title font2 <%= item.status %>"><%= item.name %><em><%= " - " + item.location if item.location %></em>
+			    <h2 class="panel-title font2 <%= item.status %>"><%= item.name %><em><%= " - " + item.location if item.location && item.location != "" %></em>
 			    </h2>
 		    </div>
 		    <% if bucket.bucket_ownerships.length > 1 %>
