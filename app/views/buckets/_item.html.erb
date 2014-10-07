@@ -1,15 +1,15 @@
 <div class="item"> 
 	<div class="panel panel-default">
-	  <% if bucket.privacy == "group" %>
+	  <% #if bucket.privacy == "group" %>
 	  	<a data-toggle="collapse" data-parent="#accordion-<%= bucket.id %>" href="#collapse<%= item.id %>">
-	  <% end %>
+	  <% #end %>
 		  <div class="panel-heading">
 		    <div class="float-left">
 		    <h2 class="panel-title font2 <%= item.status %>">
 	        <%= item.name %><em><%= " - " + item.location if item.location %></em>
 		    </h2>
 		    </div>
-		    <% if bucket.privacy == "group" %>
+		    <% if bucket.bucket_ownerships.length > 1 %>
 			    <div class="float-right attendees">
 		      	<% item.attendees.each do |attendee| %>
 			    		<div class="inline center">
@@ -22,7 +22,7 @@
 				<% end %>
 		  </div>
 
-		<% if bucket.privacy == "group" %></a>
+		</a>
 	  <div id="collapse<%= item.id %>" class="panel-collapse collapse float-clear">
 	    <div class="panel-body">
 	    	<% if item.attendees.length > 0 %>
@@ -35,7 +35,7 @@
 							<% end %>
 						</div>
 					<% end %>
-				<% end %>
+				
 				<br><br>
 				<% if current_user && bucket.owners.include?(current_user) %>
 				<% if item.attendees.include?(current_user) %>
