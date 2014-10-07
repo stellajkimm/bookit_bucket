@@ -27,7 +27,7 @@ function itemClick(el) {
 
 
 function bucketHover(el) {
-	var color = $(el).css('background-color')
+	// var color = $(el).css('background-color')
 	$(el).hover(function() {
   		// $(this).css('background-color', color.replace(')','').replace('rgb', 'rgba') + ", .3)")
   		$(this).find('.bucket-background').css('opacity', '.3')
@@ -35,7 +35,7 @@ function bucketHover(el) {
   		$(this).find('.bucket-links').show()
   		$(this).find('.bucket-owners').show() },
   		function() {
-  		$(this).css('background-color', color)
+  		// $(this).css('background-color', color)
   		$(this).find('.bucket-background').css('opacity', '1')
   		$(this).find('.bucket-content').css('opacity', '1')
   		$(this).find('.bucket-links').hide()
