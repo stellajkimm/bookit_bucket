@@ -10,8 +10,7 @@ class Bucket < ActiveRecord::Base
   has_many :followers, through: :bucket_followings, source: :user
   has_many :items
 
-  # attr_accessible :image, :remote_image_url
-  # mount_uploader :image, ImageUploader
+  mount_uploader :image, ImageUploader
 
   def make_ownership
   	bucket = Bucket.last
