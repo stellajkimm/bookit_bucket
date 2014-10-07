@@ -44,8 +44,11 @@ gem 'acts_as_follower'
 gem 'faker'
 gem 'dotenv-rails', '~> 0.11.1'
 
+gem 'fog'
 gem 'carrierwave'
-gem "mini_magick"
+gem 'carrierwave_direct'
+gem 'sidekiq'
+gem 'mini_magick'
 
 gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
 
