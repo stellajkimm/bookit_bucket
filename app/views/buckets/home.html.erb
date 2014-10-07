@@ -3,7 +3,7 @@
 		<h1><%= @type_of_bucket.upcase + "  " %>BUCKETS</h1>
 	</div>
 	<div class="inner-container divide white"></div>
-		<% if @buckets.length + @followed_buckets.length > 0 %>
+		<% if @number_of_buckets > 0 %>
 			<% @buckets.each do |bucket| %>
 					<%= render partial: "bucket", locals: { bucket: bucket } %>
 			<% end %>
