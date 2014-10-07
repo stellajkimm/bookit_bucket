@@ -57,7 +57,6 @@ class BucketsController < ApplicationController
 
 	def archive
 		@bucket.archive == false ? @bucket.update(archive: true) : @bucket.update(archive: false)
-		@number_of_buckets = @buckets.size
 		redirect_to bucket_show_archive_path
 	end
 

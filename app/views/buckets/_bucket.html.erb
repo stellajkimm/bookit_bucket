@@ -31,9 +31,9 @@
 		<% if bucket.owners.include?(current_user) %>
 			<button class="btn btn-default">
 				<% if bucket.archive == false %>
-					<%= link_to "ARCHIVE", bucket_archive_path(bucket), method: "patch" %>
+					<%= link_to "ARCHIVE", bucket_archive_path(bucket.id), method: "patch" %>
 				<% else %>
-					<%= link_to "UNARCHIVE", bucket_archive_path(bucket), method: "patch" %>
+					<%= link_to "UNARCHIVE", bucket_archive_path(bucket.id), method: "patch" %>
 				<% end %>
 			</button>
 		<% else %>
