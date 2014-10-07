@@ -31,7 +31,7 @@ function bucketHover(el) {
 	$(el).hover(function() {
   		// $(this).css('background-color', color.replace(')','').replace('rgb', 'rgba') + ", .3)")
   		$(this).find('.bucket-background').css('opacity', '.3')
-  		$(this).find('.bucket-content').css('opacity', '.30')
+  		$(this).find('.bucket-content').css('opacity', '.20')
   		$(this).find('.bucket-links').show()
   		$(this).find('.bucket-owners').show() },
   		function() {
