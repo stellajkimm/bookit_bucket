@@ -1,16 +1,13 @@
 <h3>CREATE NEW BUCKET</h3>
 <br>
 	<%= form_for @new_bucket do |f| %>
-	  <%= f.text_field :name, placeholder: "name", size: 42 %>
+	  <%= f.text_field :name, placeholder: "name", size: 49 %>
 	 <div class="btn-group" data-toggle="buttons">
 	  <label class="btn btn-primary">
 	    <input type="radio" name="bucket[privacy]" id="bucket_public" value="public"> Public
 	  </label>
 	  <label class="btn btn-primary">
 	    <input type="radio" name="bucket[privacy]" id="bucket_private" value="private"> Private
-	  </label>
-	  <label class="btn btn-primary">
-	    <input type="radio" name="bucket[privacy]" id="bucket_group" value="group"> Group
 	  </label>
 	</div>
 	  <%= f.fields_for :hashtags do |h| %>

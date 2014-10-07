@@ -18,7 +18,7 @@
 		<div class="panel-group" id="accordion-<%= @bucket.id %>" data-length="<%= @items.length %>">
 			<% @items.each do |item| %>
 				<%= render partial: 'buckets/item', locals: { bucket: @bucket, item: item } %>
-			<% end %><br>
+			<% end %><br><br>
 		</div>
 
 		<% if @bucket.owners.include?(current_user) %>

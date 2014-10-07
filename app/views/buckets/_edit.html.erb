@@ -1,7 +1,7 @@
 <h3>EDIT- <%= @bucket.name.upcase %></h3>
 <br>
 	<%= form_for @bucket do |f| %>
-	  <%= f.text_field :name, size: 38 %>
+	  <%= f.text_field :name, size: 49 %>
 		<div class="btn-group" data-toggle="buttons">
 		  <label class="btn btn-primary <%= "active" if @bucket.privacy == "public" %>">
 		    <input type="radio" name="bucket[privacy]" id="bucket_public" value="public" <%= "checked" if @bucket.privacy == "public" %>> Public
