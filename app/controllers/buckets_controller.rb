@@ -68,8 +68,13 @@ class BucketsController < ApplicationController
 	end
 
 	def show_group
-		@buckets = current_user.owned_buckets.where(archive: false, privacy: "group")
-		@number_of_buckets = @buckets.size
+		@buckets = current_user.owned_buckets.joins(:bucket_ownerships).group("buckets.id").having("count(bucket_ownerships.id) > ?", 1)
+		# @buckets = Customer.joins(:purchases).group("customer.id").having("count(purchases.id) > ?",0)
+		# @buckets = Bucket.includes(:bucket_ownerships).where(:bucket_ownerships => {:count.gte => 1})
+		# @buckets = Bucket.joins(:bucket_ownerships).group(:bucket_id).having(:bucket_ownerships => (:count[:bucket_id] > 1))
+		# User.joins(:account).merge(Account.where(:active => true))
+		# @buckets = current_user.owned_buckets.where(archive: false).having('count(bucket_ownerships) > 0')
+		@number_of_buckets = @buckets.length
 		@type_of_bucket = "group"
 		render 'home'
 	end
