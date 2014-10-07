@@ -9,9 +9,6 @@
 		  <label class="btn btn-primary <%= "active" if @bucket.privacy == "private" %>">
 		    <input type="radio" name="bucket[privacy]" id="bucket_private" value="private" <%= "checked" if @bucket.privacy == "private" %>> Private
 		  </label>
-		  <label class="btn btn-primary <%= "active" if @bucket.privacy == "group" %>">
-		    <input type="radio" name="bucket[privacy]" id="bucket_group" value="group" <%= "checked" if @bucket.privacy == "group" %>> Group
-		  </label>
 		</div>
 	  <%= f.fields_for :hashtags do |h| %>
     	<%= h.text_field :tag, value: @hashtags, placeholder: "hashtags (ex. #hash #hash two #hash three)", size: 65 %>

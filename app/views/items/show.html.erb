@@ -8,7 +8,7 @@
 	<h5>Rating: <%= @item.rating %></h5>
 	<h5>Review: <%= @item.review %></h5>
 
-	<% if @item.bucket.privacy == "group" %>
+	<% if @item.bucket.bucket_ownerships > 1 %>
 		<h5>Attendees:
 		<% @item.attendees.each do |attendee| %>
 			<%= image_tag attendee.picture, height: "20px" %>
