@@ -41,12 +41,14 @@ end
 
 30.times do |index|
 	user_location = Faker::Address.city + ", " + Faker::Address.state_abbr
-	user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone_number: Faker::PhoneNumber.phone_number, password: "password", location: user_location, picture: "people/marko_kovacevic-dbc_headshots-2014-05-28-square-#{index}.jpg")
+	user = User.create(first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, email: Faker::Internet.email, phone_number: Faker::PhoneNumber.phone_number, password: "password", location: user_location, picture: "people/marko_kovacevic-dbc_headshots-2014-05-28-square-#{index + 1}.jpg")
 	user.update(username: "#{user.first_name.downcase}_#{user.last_name.downcase}")
 
 	rand(1..8).times do
 		category = categories.sample
-		bucket = user.created_buckets.create(name: bucket_titles[category].sample, privacy: privacy.sample)		
+		bucket = user.created_buckets.create(name: bucket_titles[category].sample, privacy: privacy.sample)
+		bucket.image = File.open(Rails.root.join("app", "assets", "images", "#{category}", "#{rand(1..10)}.jpg"))
+		bucket.save
 		(0..3).to_a.sample.times do 
 			tag = Hashtag.find_by(tag: hashtags[category].sample)
 			bucket.bucket_hashtags.find_or_create_by(hashtag_id: tag.id)
@@ -55,15 +57,15 @@ end
 		if category == "activites" || category == "friends"
 			rand(3..8).times do
 				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
-				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
-				bucket.save
+				# bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				# bucket.save
 			end
 		end
 
 		if category == "dates"
 				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
-				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
-				bucket.save
+				# bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				# bucket.save
 		end
 
 		10.times do
@@ -72,7 +74,7 @@ end
 			item.update(status: status.sample)
 			item.location = location if items_with_locations.include?(category)
 			item.save
-			if bucket.privacy == "group"
+			if bucket.bucket_ownerships.length > 1
 				rand(0..bucket.bucket_ownerships.length).times do
 					item.attendances.find_or_create_by(user_id: bucket.bucket_ownerships.sample.user_id)
 				end
@@ -88,6 +90,8 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 10.times do
 		category = categories.sample
 		bucket = user.created_buckets.create(name: bucket_titles[category].sample, privacy: privacy.sample)		
+		bucket.image = File.open(Rails.root.join("app", "assets", "images", "#{category}", "#{rand(1..10)}.jpg"))
+		bucket.save
 		(0..3).to_a.sample.times do 
 			tag = Hashtag.find_by(tag: hashtags[category].sample)
 			bucket.bucket_hashtags.find_or_create_by(hashtag_id: tag.id)
@@ -96,15 +100,15 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 		if category == "activites" || category == "friends"
 			rand(3..8).times do
 				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
-				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
-				bucket.save
+				# bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				# bucket.save
 			end
 		end
 
 		if category == "dates"
 				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
-				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
-				bucket.save
+				# bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				# bucket.save
 		end
 
 		10.times do
@@ -113,7 +117,7 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 			item.update(status: status.sample)
 			item.location = location if items_with_locations.include?(category)
 			item.save
-			if bucket.privacy == "group"
+			if bucket.bucket_ownerships.length > 1
 				rand(0..bucket.bucket_ownerships.length).times do
 					item.attendances.find_or_create_by(user_id: bucket.bucket_ownerships.sample.user_id)
 				end

@@ -18,7 +18,7 @@
 		<div class="panel-group" id="accordion-<%= @bucket.id %>" data-length="<%= @items.length %>">
 			<% @items.each do |item| %>
 				<%= render partial: 'buckets/item', locals: { bucket: @bucket, item: item } %>
-			<% end %><br>
+			<% end %><br><br>
 		</div>
 
 		<% if @bucket.owners.include?(current_user) %>
@@ -32,9 +32,7 @@
 			<% else %>
 				<button class="btn btn-default"><%= link_to "UNARCHIVE", bucket_archive_path(@bucket), method: "patch" %></button>
 			<% end %>
-			<% if @bucket.privacy == "group" %>
-				<button class="btn btn-default" data-toggle="modal" data-target= "#owners">ADD/REMOVE OWNERS</button>
-			<% end %>
+			<button class="btn btn-default" data-toggle="modal" data-target= "#owners">ADD/REMOVE OWNERS</button>
 		<% else %>
 			<% if @bucket.followers.include?(current_user) %>
 				<button class="btn btn-default"><%= link_to "UNFOLLOW", bucket_bucket_followings_path(@bucket, @bucket_following), method: "delete" %></button>
@@ -49,6 +47,14 @@
 			<%= link_to "##{tag.tag}", hashtag_path(tag) %>
 		<% end %>
 	</div>
+
+	<div class="inner-container green">
+	hello
+	<%= image_tag @bucket.image_url %>
+	hello
+	</div>
+
 </div>
+
 
 <%= render partial: "modals" %>

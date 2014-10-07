@@ -10,6 +10,8 @@ class Bucket < ActiveRecord::Base
   has_many :followers, through: :bucket_followings, source: :user
   has_many :items
 
+  mount_uploader :image, ImageUploader
+
   def make_ownership
   	bucket = Bucket.last
   	bucket.bucket_ownerships.create(user_id: bucket.user_id)

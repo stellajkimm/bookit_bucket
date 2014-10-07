@@ -21,10 +21,15 @@
 			<div class="inner-container white center">
 				<h2 class="font2">You do not have any <%= @type_of_bucket %> buckets yet!</h2>
 				<br>
-				<% if @type_of_bucket != "archive" %>
-					<button class="btn btn-default" data-toggle="modal" data-target= "#create">CREATE NEW BUCKET</button>
+				<% if @type_of_bucket == "archive" %>
+					<button class="btn btn-default"><%= link_to "VIEW ALL YOUR BUCKETS", buckets_home_path %></button>
+				<% elsif @type_of_bucket == "following" %>
+
+					<% # this link does not work yet %>
+
+					<button class="btn btn-default"><%= link_to "FIND BUCKETS TO FOLLOW" %></button>
 				<% else %>
-					<button class="btn btn-default"><%= link_to "VIEW ALL BUCKETS", buckets_home_path %></button>
+					<button class="btn btn-default" data-toggle="modal" data-target= "#create">CREATE NEW BUCKET</button>
 				<% end %>
 			</div>
 			<div class="inner-container divide white"></div>

@@ -25,12 +25,12 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
-gem 'dotenv-rails', '~> 0.11.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
@@ -42,10 +42,12 @@ gem 'jquery-turbolinks'
 gem 'devise'
 gem 'acts_as_follower'
 gem 'faker'
+gem 'dotenv-rails', '~> 0.11.1'
+
+gem 'carrierwave'
+gem "mini_magick"
 
 gem "twitter-bootstrap-rails", :git => 'git://github.com/seyhunak/twitter-bootstrap-rails.git'
-
-gem 'unicorn'
 
 group :production do 
 	gem 'rails_12factor'
