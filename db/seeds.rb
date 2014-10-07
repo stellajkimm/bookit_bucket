@@ -47,7 +47,8 @@ end
 	rand(1..8).times do
 		category = categories.sample
 		bucket = user.created_buckets.create(name: bucket_titles[category].sample, privacy: privacy.sample)
-		bucket.image = File.open(Rails.root.join("app", "assets", "images", "#{category}", "#{rand(1..10)}.jpg"))
+		# bucket.image = File.open(Rails.root.join("app", "assets", "images", "#{category}", "#{rand(1..10)}.jpg"))
+		bucket.image = 'assets/' + category + '/' + rand(1..10).to_s + '.jpg'
 		bucket.save
 		(0..3).to_a.sample.times do 
 			tag = Hashtag.find_by(tag: hashtags[category].sample)
@@ -90,7 +91,8 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 10.times do
 		category = categories.sample
 		bucket = user.created_buckets.create(name: bucket_titles[category].sample, privacy: privacy.sample)		
-		bucket.image = File.open(Rails.root.join("app", "assets", "images", "#{category}", "#{rand(1..10)}.jpg"))
+		# bucket.image = File.open(Rails.root.join("app", "assets", "images", "#{category}", "#{rand(1..10)}.jpg"))
+		bucket.image = 'assets/' + category + '/' + rand(1..10).to_s + '.jpg'
 		bucket.save
 		(0..3).to_a.sample.times do 
 			tag = Hashtag.find_by(tag: hashtags[category].sample)
