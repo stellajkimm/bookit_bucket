@@ -14,11 +14,11 @@
     	<%= h.text_field :tag, value: @hashtags, placeholder: "hashtags (ex. #hash #hash two #hash three)", size: 65 %>
   	<% end %><br><br>
   	<p>
-	    <%= f.file_field :image %>
+	    <% #= f.file_field :image %>
 	  </p>
 	  <p>
-	    <%= f.label :remote_image_url, "or image URL" %><br />
-	    <%= f.text_field :remote_image_url %>
+	    <% #= f.label :remote_image_url, "or image URL" %>
+	    <% #= f.text_field :remote_image_url %>
 	  </p>
 	  <%= f.submit "UPDATE BUCKET", class: "btn btn-default" %>
 	<% end %>
