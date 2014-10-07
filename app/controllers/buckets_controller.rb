@@ -27,6 +27,9 @@ class BucketsController < ApplicationController
 
 	def create
 		@new_bucket = current_user.created_buckets.create(bucket_params)
+		
+		categories = ["restaurants", "dates", "friends", "things_to_buy", "things_to_do", "before_i_die", "places_to_visit", "activities"]
+		@new_bucket.image = 'assets/' + categories.sample + '/' + rand(1..10).to_s + '.jpg'
 		redirect_to bucket_update_hashtags_path(@new_bucket, :hashtags => params[:bucket][:hashtags][:tag])
 	end
 
