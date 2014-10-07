@@ -1,0 +1,13 @@
+<h3>UPDATE PICTURE- <br><%= @bucket.name.upcase %></h3>
+<br>
+	<%= form_for @bucket, :html => {:multipart => true} do |f| %>
+	  <p>
+	    <%= f.file_field :image %>
+	  </p>
+	  <p>
+	    <%= f.label :remote_image_url, "or image URL" %><br />
+	    <%= f.text_field :remote_image_url %>
+	  </p>
+	  <%= f.submit "UPDATE PICTURE", class: "btn btn-default" %>
+	<% end %>
+<br><br>
