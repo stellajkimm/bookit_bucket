@@ -55,15 +55,15 @@ end
 		if category == "activites" || category == "friends"
 			rand(3..8).times do
 				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
-				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
-				bucket.save
+				# bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				# bucket.save
 			end
 		end
 
 		if category == "dates"
 				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
-				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
-				bucket.save
+				# bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				# bucket.save
 		end
 
 		10.times do
@@ -72,7 +72,7 @@ end
 			item.update(status: status.sample)
 			item.location = location if items_with_locations.include?(category)
 			item.save
-			if bucket.privacy == "group"
+			if bucket.bucket_ownerships.length > 1
 				rand(0..bucket.bucket_ownerships.length).times do
 					item.attendances.find_or_create_by(user_id: bucket.bucket_ownerships.sample.user_id)
 				end
@@ -96,15 +96,15 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 		if category == "activites" || category == "friends"
 			rand(3..8).times do
 				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
-				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
-				bucket.save
+				# bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				# bucket.save
 			end
 		end
 
 		if category == "dates"
 				bucket.bucket_ownerships.find_or_create_by(user_id: rand(1..31))
-				bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
-				bucket.save
+				# bucket.privacy = "group" if bucket.bucket_ownerships.length > 1
+				# bucket.save
 		end
 
 		10.times do
@@ -113,7 +113,7 @@ user = User.create(first_name: "Stella", last_name: "Kim", email: "stella@stella
 			item.update(status: status.sample)
 			item.location = location if items_with_locations.include?(category)
 			item.save
-			if bucket.privacy == "group"
+			if bucket.bucket_ownerships.length > 1
 				rand(0..bucket.bucket_ownerships.length).times do
 					item.attendances.find_or_create_by(user_id: bucket.bucket_ownerships.sample.user_id)
 				end
