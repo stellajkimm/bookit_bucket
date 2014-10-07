@@ -1,5 +1,5 @@
 class BucketsController < ApplicationController
-		before_filter :load_bucket, only: [:show, :destroy, :update, :archive]
+		before_filter :load_bucket, only: [:show, :destroy, :update, :archive] #, :photo]
 		before_filter :load_new_bucket
 
 	def index
@@ -39,6 +39,18 @@ class BucketsController < ApplicationController
 		@bucket.update(bucket_params)
 		redirect_to bucket_update_hashtags_path(@bucket, :hashtags => params[:bucket][:hashtags][:tag])
 	end
+
+	# def photo
+	# 	p "***********"
+	# 	p @bucket
+	# 	p "***********"
+	# 	@bucket.image = params[:bucket][:remote_image_url]
+	# 	p "params:  " + params[:bucket][:remote_image_url]
+	# 	p @bucket.image
+	# 	p "***********"
+	# 	@bucket.save
+	# 	redirect_to bucket_path(@bucket)
+	# end
 
 	def archive
 		@bucket.archive == false ? @bucket.update(archive: true) : @bucket.update(archive: false)
@@ -85,7 +97,7 @@ class BucketsController < ApplicationController
 	private
   
   def bucket_params
-    params.require(:bucket).permit(:name, :privacy, :user_id, :archive)
+    params.require(:bucket).permit(:name, :privacy, :user_id, :archive, :image, :remote_image_url)
   end
 
   def load_bucket
