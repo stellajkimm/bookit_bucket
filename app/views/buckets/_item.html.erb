@@ -1,13 +1,11 @@
 <div class="item"> 
 	<div class="panel panel-default">
-	  <% #if bucket.privacy == "group" %>
-	  	<a data-toggle="collapse" data-parent="#accordion-<%= bucket.id %>" href="#collapse<%= item.id %>">
-	  <% #end %>
+
+		<a data-toggle="collapse" data-parent="#accordion-<%= bucket.id %>" href="#collapse<%= item.id %>">
 		  <div class="panel-heading">
 		    <div class="float-left">
-		    <h2 class="panel-title font2 <%= item.status %>">
-	        <%= item.name %><em><%= " - " + item.location if item.location %></em>
-		    </h2>
+			    <h2 class="panel-title font2 <%= item.status %>"><%= item.name %><em><%= " - " + item.location if item.location %></em>
+			    </h2>
 		    </div>
 		    <% if bucket.bucket_ownerships.length > 1 %>
 			    <div class="float-right attendees">
@@ -15,14 +13,14 @@
 			    		<div class="inline center">
 				    		<%= link_to user_path(attendee) do %>
 					    		<div class="circular height35" style = 'background-image: url(<%= attendee.picture %>); '><%= image_tag attendee.picture %></div>
-								<% end %>
-							</div>
-						<% end %>
-					</div>
-				<% end %>
-		  </div>
+								<% end %> <!-- end link_to line 14 -->
+							</div> <!-- end inline center line 13 -->
+						<% end %> <!-- end items.attendees.each line 12 -->
+					</div> <!-- end float-right line 11 -->
+				<% end %> <!-- end bucket-ownerships > 1 line 10 -->
+		  </div> <!-- end panel-heading line 5 -->
+		</a> <!-- end link line 4 -->
 
-		</a>
 	  <div id="collapse<%= item.id %>" class="panel-collapse collapse float-clear">
 	    <div class="panel-body">
 	    	<% if item.attendees.length > 0 %>
@@ -32,26 +30,29 @@
 			    		<%= link_to user_path(attendee) do %>
 				    		<div class="circular" style = 'background-image: url(<%= attendee.picture %>);'><%= image_tag attendee.picture, height: '20px' %></div>
 				    		<%= attendee.full_name %>
-							<% end %>
-						</div>
-					<% end %>
-				
+							<% end %> <!-- end link_to line 30 -->
+						</div> <!-- end inline center line 29 -->
+					<% end %> <!-- end item.attendees.each line 28 -->
+				<% end %> <!-- end items.attendees.length > 0 line 26 -->
+
 				<br><br>
+
 				<% if current_user && bucket.owners.include?(current_user) %>
-				<% if item.attendees.include?(current_user) %>
+					<% if item.attendees.include?(current_user) %>
 						<button class="btn btn-default"><%= link_to "UNATTEND", bucket_item_attendances_path(bucket, item), method: "delete" %></button>
 					<% else %>
 						<button class="btn btn-default"><%= link_to "ATTEND", bucket_item_attendances_path(bucket, item), method: "post" %></button>
 					<% end %>
+
 					<% if item.status == "todo" %>
 						<button class="btn btn-default"><%= link_to "MARK DONE", bucket_item_status_path(bucket, item), method: "patch" %></button>
 					<% else %>
 						<button class="btn btn-default"><%= link_to "MARK TODO", bucket_item_status_path(bucket, item), method: "patch" %></button>
 					<% end %>
-						<button class="btn btn-default"><%= link_to "DELETE", bucket_item_path(bucket, item), method: "delete" %></button>
+
+					<button class="btn btn-default"><%= link_to "DELETE", bucket_item_path(bucket, item), method: "delete" %></button>
 				<% end %>
-	    </div>
-	  </div>
-  	<% end %>
+	    </div> <!-- end panel-body line 25 -->
+	  </div> <!-- end collapse line 24 -->
 	</div>
 </div> 
