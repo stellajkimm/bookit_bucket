@@ -21,6 +21,7 @@
 		  </div> <!-- end panel-heading line 5 -->
 		</a> <!-- end link line 4 -->
 
+	<% if item.attendees.length > 0 || bucket.owners.include?(current_user) %>
 	  <div id="collapse<%= item.id %>" class="panel-collapse collapse float-clear">
 	    <div class="panel-body">
 	    	<% if item.attendees.length > 0 %>
@@ -52,7 +53,8 @@
 
 					<button class="btn btn-default"><%= link_to "DELETE", bucket_item_path(bucket, item), method: "delete" %></button>
 				<% end %>
-	    </div> <!-- end panel-body line 25 -->
-	  </div> <!-- end collapse line 24 -->
+	    </div> <!-- end panel-body line 26 -->
+	  </div> <!-- end collapse line 25 -->
+  <% end %>
 	</div>
 </div> 
