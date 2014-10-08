@@ -1,5 +1,5 @@
 <div class="container">
-	<div class="inner-container yellow5">
+	<div class="inner-container bucket-title" style="background-image:url('../<%= @bucket.image %>');">
 			<h1 class="font2"><strong><%= @bucket.name %></strong></h1>
 			<h2 class="font2"><strong><em>by <%= @bucket.creator.full_name %></em></strong></h2>
 		<h3>Privacy: <%= @bucket.privacy %></h3>
@@ -12,7 +12,6 @@
 			<% end %>
 			</ul>
 		<% end %>
-
 	</div>
 	<div class="inner-container white">
 		<div class="panel-group" id="accordion-<%= @bucket.id %>" data-length="<%= @items.length %>">

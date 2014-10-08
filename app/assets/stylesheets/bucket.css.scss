@@ -29,8 +29,6 @@
 }
 
 .bucket-links {
-   position: relative;
-   z-index: 5;
 }
 
 .bucket-owners {
@@ -49,11 +47,12 @@
 
 .bucket-links {
 	position: absolute;
+  z-index: 5;
 	bottom: 5px;
 	left: 5px;
 
 	h2, h4 {
-		color: white;
+		color: #EAEBE9;
 	}
 }
 
@@ -63,6 +62,11 @@
 	left: 5px;
 }
 
+.bucket-title {
+	background-size: 100%; 
+	background-position: center;
+	color: #EAEBE9;
+}
 .bucket-fade {
    opacity: 1;
    transition: opacity .2s ease-in-out;
